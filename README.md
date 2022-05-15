@@ -14,6 +14,9 @@ Brief:
 Use Case Diagrams:
 
 
+![LoginProcess](https://github.com/hhchinh2002/NUSocial/blob/readme-updates/readmeFiles/Before%20Login%20webpage%20flow.jpg?raw=true)
+
+
 
 
 
