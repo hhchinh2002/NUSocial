@@ -13,6 +13,8 @@ Brief:
 
 Use Case Diagrams:
 
+![UseCaseGuest](https://github.com/hhchinh2002/NUSocial/blob/readme-updates/readmeFiles/Use%20Case%20Guest.jpg)
+
 
 ![LoginProcess](https://github.com/hhchinh2002/NUSocial/blob/readme-updates/readmeFiles/Before%20Login%20webpage%20flow.jpg?raw=true)
 
