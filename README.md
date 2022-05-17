@@ -25,5 +25,4 @@ Use Case Diagrams:
 
 ![ArchitectureDiagram](https://github.com/hhchinh2002/NUSocial/blob/readme-updates/readmeFiles/Architecure%20Diagram.jpg)
 
-
-
+![WebPageFlow](https://github.com/hhchinh2002/NUSocial/blob/readme-updates/readmeFiles/WebPageFlow.jpg)
