@@ -2,6 +2,9 @@ import React from 'react'
 import './newsFeed.css'
 import { Avatar } from '@mui/material'
 
+// img: url of image that is in the background of the news feed
+// profileIcon: url of image that is used int he profile icon
+// title: describes the news in brief 
 const NewsFeed = ({img, profileIcon, title}) => {
   const avatarStyle = {
     margin: "10px",
