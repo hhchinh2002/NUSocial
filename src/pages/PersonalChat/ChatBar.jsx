@@ -9,7 +9,7 @@ import {
   SearchOutlined
 } from "@mui/icons-material";
 
-
+//todo: extract footer, body, and header as separate components to simplify this:
  const ChatBar = () => {
 
   const [input, setInput] =  useState("");
