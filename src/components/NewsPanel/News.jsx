@@ -3,7 +3,7 @@ import "./news.css"
 import NewsFeed from'./NewsFeed'
 import NUSLogo from '../../imgs/NUSLogo.png'
 
-
+//Change props of NewsFeed to alter content of News panel
 const News = () => {
   const modRegImg = "https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1290&q=80";
   const orbitalImg = "https://orbital.comp.nus.edu.sg/wp-content/uploads/sites/12/2020/04/cropped-cropped-STS-133_Discovery_Lift_Off_Launch_Pad_39A_KSC.jpg";
