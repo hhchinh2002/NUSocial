@@ -1,4 +1,4 @@
-import { Users } from "../testData";
+import { Users } from "../test-data/testData";
 import './rightBar.css';
 import Online from "../Online/Online";
 
