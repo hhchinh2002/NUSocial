@@ -1,7 +1,7 @@
 import React from 'react'
 import "./news.css"
 import NewsFeed from'./NewsFeed'
-import { NewsData } from '../test-data/testData'
+import { NewsData } from '../test-data/test-data'
 
 //Change props of NewsFeed to alter content of News panel
 const News = () => {
