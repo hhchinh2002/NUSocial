@@ -1,0 +1,31 @@
+.rightBar {
+    flex: 3.5;
+}
+
+.rightBarContainer {
+    padding: 50px 20px 0 50px;
+    align-items: center;
+}
+
+.friendSuggestionContainer {
+    display: flex;
+    align-items: none;
+    height: 50px;
+}
+
+.rightBarTitle {
+    margin-bottom: 20px;
+}
+
+.rightBarFriendList {
+    padding: 0 0 0 30px;
+    margin: 0;
+    list-style: none;
+}
+
+.rightBarTitle{
+    font-size: 18px;
+    color: #EF7C00;
+    font-weight: 1000;
+    margin-bottom: 10px;
+}
