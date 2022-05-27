@@ -1,6 +1,6 @@
 import './leftBar.css';
 import LeftBarRow from './LeftBarRow';
-import { LeftBarFeed } from '../test-data/testData';
+import { LeftBarFeed } from '../test-data/test-data';
 
 //change props in LeftBarRow as required to render different links in LeftBar
 const LeftBar = () => {
