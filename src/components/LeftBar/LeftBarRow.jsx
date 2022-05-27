@@ -7,13 +7,12 @@ import './leftBarRow.css'
 // imgSrc is url of image shown beside text 
 // Icon is alternative to imgSrc
 // title is text that appears in row
-const LeftBarRow = ({src, imgSrc, Icon, title}) => {
+const LeftBarRow = ({src, imgSrc, title}) => {
   return (
     <Link href={src} style={{ textDecoration: 'none'}} >
     <div className = 'LeftBarRow'>
 
     {imgSrc && <Avatar src = {imgSrc} />}
-    {Icon && <Icon />}
     <h4>{title}</h4>
     
     </div>
