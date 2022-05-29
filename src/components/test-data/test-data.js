@@ -78,3 +78,20 @@ export const LeftBarFeed = [
         title: "More",
     }, 
 ]
+export const ProfileAlbumList = [
+    {
+        img: "https://middleclass.sg/wp-content/uploads/2020/09/Hiking-Trails-in-Singapore-Rita-Chou-Unsplash.jpg",
+    },
+    {
+        img: "https://static.honeykidsasia.com/wp-content/uploads/2018/08/juliane-lieberman-hiking-in-singapore.png",
+    },
+    {
+        img: "https://media.timeout.com/images/105766329/750/422/image.jpg",
+    },
+    {
+        img: "https://media.timeout.com/images/105779326/750/422/image.jpg",
+    },
+    {
+        img: "https://media.womensweekly.com.sg/public/2019/11/kranji.jpg",
+    },
+]
