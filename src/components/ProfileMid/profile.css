@@ -1,0 +1,84 @@
+.profileTop {
+    height: 600px;
+    position: flex;
+}
+
+.profileCoverImg {
+    width: 100%;
+    object-fit: cover;
+    height: 500px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.profileAvatar {
+    position: relative;
+    top: -75px;
+    left: 300px;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid;
+    border-color: white;    
+}
+
+.profileUserInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 475px;
+    margin-top: -160px;
+}
+
+.profileUserName {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.profileBottom {
+    display:flex;
+    width: 100%;
+}
+
+.profileBottomLeft {
+    display: flex;
+    flex-direction: column;
+    flex: 40%;
+}
+
+.profileBio {
+    height: 400px;
+    width: 100%;
+}
+
+.bioTitle {
+    height: 25px;
+    width: 100%;
+    background-color: #ffa544;
+    text-align: center;
+    padding: 25px 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    font-size: larger;
+    font-weight: bold;
+    color: #1f3d85;
+}
+
+.albumTitle {
+    width: 100%;
+    background-color: #ffa544;
+    text-align: center;
+    padding: 25px 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    font-size: larger;
+    font-weight: bold;
+    color: #1f3d85;
+}
+
+.profileBottomRight {
+    flex: 60%;
+}
