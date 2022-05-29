@@ -1,0 +1,18 @@
+.LaunchPageBody {
+    display:flex;
+    flex-direction: row;
+}
+
+.LaunchPageHeader > h1 {
+    display: block;
+    font-size: 2em;
+    margin-top: 0em;
+    margin-bottom: 0.67em;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    font-weight: bold;
+    background-color:#F0B559 ;  
+    color: #003D7C;
+
+}
