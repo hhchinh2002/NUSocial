@@ -1,0 +1,20 @@
+.profile {
+    display: flex;
+    width: 100%;
+}
+
+.profileBody {
+    display: flex;
+}
+
+.profileBodyLeft {
+    flex: 20%;
+}
+
+.profileBodyMid {
+    flex: 60%;
+}
+
+.profileBodyRight {
+    flex: 30%;
+}
