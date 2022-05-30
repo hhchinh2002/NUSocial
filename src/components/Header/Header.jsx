@@ -23,7 +23,9 @@ const Header = ({title}) => {
         <div className="headerRight">
           <div className="headerIcon">
             <div className="iconItem">
+            <a href = "/home" >
               <Home fontSize='large' htmlColor='#1f3d85'/>
+              </a>
             </div>
             <div className="iconItem">
               <Notifications fontSize='large' htmlColor='#1f3d85'/>
@@ -34,7 +36,7 @@ const Header = ({title}) => {
               <span className="iconBadge">3</span>
             </div>
           </div>
-          <Avatar src="https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/ec/83/3a/ec833a37-1e6f-958e-9e60-4f358795405f/source/512x512bb.jpg">3</Avatar>
+          <a href = "/profile"><Avatar src="https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/ec/83/3a/ec833a37-1e6f-958e-9e60-4f358795405f/source/512x512bb.jpg">3</Avatar></a>
         </div>
         
     </div>
