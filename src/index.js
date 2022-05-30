@@ -7,6 +7,7 @@ import LoginStudent from "./pages/Login/LoginStudent"
 import PersonalChat from "./pages/PersonalChat/PersonalChat"
 import { LaunchPage } from './pages/LaunchPage/LaunchPage';
 import QuickLinks from "./pages/QuickLinks/QuickLinks"
+import Profile from "./pages/Profile/Profile";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,7 @@ root.render(
   <Route path = "/students-login" element = {<LoginStudent/>} />
   <Route path = "/personalchat" element = {<PersonalChat />} />
   <Route path = "/quicklinks" element = {<QuickLinks />} />
+  <Route path = "/profile" element = {<Profile />} />
   </Routes> 
   </BrowserRouter>
 );
