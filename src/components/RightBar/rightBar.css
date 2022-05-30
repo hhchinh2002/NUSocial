@@ -5,20 +5,66 @@
 .rightBarContainer {
     padding: 50px 20px 0 50px;
     align-items: center;
+    margin-right: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
 }
 
 .friendSuggestionContainer {
     display: flex;
     align-items: none;
-    height: 50px;
+    height: 200px;
+    border: 3px solid #efefef;
+    border-radius: 10px;
+    background-color: white;
+    flex-direction: column;
 }
 
+.friendSuggestionTitle {
+    font-size: 20px;
+    padding-top: 15px;
+    height: 40px;
+    width: 100%;
+    border-bottom: 3px solid #efefef;
+}
+
+.friendSuggestion {
+    display: flex;
+    flex-direction: column;
+}
+
+.friendSuggestionRequest {
+    display: flex;
+    margin-top: 15px;
+    height: 40px;
+    align-items: center;
+}
+
+.friendSuggestionAvatar {
+
+}
 .rightBarTitle {
     margin-bottom: 20px;
 }
 
+.rightBarFriendListContainer {
+    margin-top: 30px;
+    border: 3px solid #efefef;
+    border-radius: 10px;
+    background-color: white;
+    border-bottom: none;
+}
+
+.friendListTitle {
+    border-bottom: 3px solid #efefef;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 .rightBarFriendList {
-    padding: 0 0 0 30px;
     margin: 0;
     list-style: none;
 }

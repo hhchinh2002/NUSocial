@@ -6,7 +6,7 @@ import ProfileMid from '../../components/ProfileMid/ProfileMid'
 
 const Profile = () => {
   return (
-    <>
+    <div className="profile">
         <div className="profileHeader">
             <Header />
         </div>
@@ -21,7 +21,7 @@ const Profile = () => {
                 <RightBar />
             </div>
         </div>
-    </>
+    </div>
   )
 }
 

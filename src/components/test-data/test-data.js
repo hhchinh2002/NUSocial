@@ -80,18 +80,129 @@ export const LeftBarFeed = [
 ]
 export const ProfileAlbumList = [
     {
-        img: "https://middleclass.sg/wp-content/uploads/2020/09/Hiking-Trails-in-Singapore-Rita-Chou-Unsplash.jpg",
-    },
-    {
-        img: "https://static.honeykidsasia.com/wp-content/uploads/2018/08/juliane-lieberman-hiking-in-singapore.png",
-    },
-    {
-        img: "https://media.timeout.com/images/105766329/750/422/image.jpg",
-    },
-    {
-        img: "https://media.timeout.com/images/105779326/750/422/image.jpg",
-    },
-    {
-        img: "https://media.womensweekly.com.sg/public/2019/11/kranji.jpg",
-    },
+        img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+        title: 'Breakfast',
+        rows: 2,
+        cols: 2,
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+        title: 'Burger',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
+        title: 'Camera',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
+        title: 'Coffee',
+        cols: 2,
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
+        title: 'Hats',
+        cols: 2,
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
+        title: 'Honey',
+        author: '@arwinneil',
+        rows: 2,
+        cols: 2,
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
+        title: 'Basketball',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
+        title: 'Fern',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
+        title: 'Mushrooms',
+        rows: 2,
+        cols: 2,
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
+        title: 'Tomato basil',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
+        title: 'Sea star',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
+        title: 'Bike',
+        cols: 2,
+      },
+    ];
+
+export const PostList = [
+  {
+    userAvatar: "https://img.freepik.com/free-vector/cute-husky-dog-sitting-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-premium_138676-4567.jpg?w=2000",
+    userName: "Husky Nguyen",
+    time: "3/8/2022",
+    text: "Mariah Carey songs and Food ~~~",
+    imageList: "https://images.foody.vn/res/g28/279839/s800/foody-moo-beef-steak-ngo-duc-ke-267-637502007820266684.jpg",
+    love: "203",
+    comment: "3002",
+  },
+  {
+    userAvatar: "https://i.pinimg.com/originals/e1/ca/39/e1ca39a0f97c5266633707c84db298fb.png",
+    userName: "Otter Ong",
+    time: "1/4/2022",
+    text: "Happy April Fools!",
+    imageList: "",
+    love: "56",
+    comment: "45",
+  },
+  {
+    userAvatar: "https://stickershop.line-scdn.net/stickershop/v1/product/8025109/LINEStorePC/main.png;compress=true",
+    userName: "Cat Everdeen",
+    time: "21/3/2022",
+    text: "What a boring day",
+    imageList: "https://images.squarespace-cdn.com/content/v1/5a3bb03b4c326d76de73ddaa/1517870790024-IFBNSJOV4HJTTLG5D6CU/one+of+Singapore%27s+photography+locations?format=1000w",
+    love: "104",
+    comment: "254",
+  },
+  {
+    userAvatar: "https://images.squarespace-cdn.com/content/v1/5a3bb03b4c326d76de73ddaa/1517870790024-IFBNSJOV4HJTTLG5D6CU/one+of+Singapore%27s+photography+locations?format=1000w",
+    userName: "Golden Potter",
+    time: "29/4/2022",
+    text: "Guess what I have for dinner?",
+    imageList: "",
+    love: "32",
+    comment: "59",
+  },
+  {
+    userAvatar: "https://i.pinimg.com/originals/55/ec/c9/55ecc970ecf26ce69bc719e0c2710d86.jpg",
+    userName: "Manaphy",
+    time: "5/5/2022",
+    text: "What a nice day for swimming",
+    imageList: "https://blog.nus.edu.sg/reslife/files/2017/06/IMG_9878-2mo25pi-2czagpj.jpg",
+    love: "1059",
+    comment: "3025",
+  },
+]
+
+export const FriendSuggestion = [
+  {
+    avatar: "https://www.nicepng.com/png/detail/34-348344_anime-bat-transparent.png",
+    username: "Bat Lim",
+  },
+  {
+    avatar: "https://thumbs.dreamstime.com/b/vector-illustration-flat-minimal-eps-file-copy-space-cute-hedgehog-cartoon-character-121105061.jpg",
+    username: "Hedgehog Wong",
+  },
+  {
+    avatar: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/30c16d51-85e7-4f86-8dc1-426d3450f914/da5wwjm-1a0e7525-339a-43ec-b367-039ab56e6d21.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzMwYzE2ZDUxLTg1ZTctNGY4Ni04ZGMxLTQyNmQzNDUwZjkxNFwvZGE1d3dqbS0xYTBlNzUyNS0zMzlhLTQzZWMtYjM2Ny0wMzlhYjU2ZTZkMjEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.CPrMe6tLHvfUzQrZrwmvn6dur3DRFUO0Jzpyu78aFzY",
+    username: "Iwanko Chua",
+  },
+  {
+    avatar: "https://images.saymedia-content.com/.image/t_share/MTc0NDU1NjM4NjAzODAyMjQ2/cutest-pokemon-of-all-time.png",
+    username: "Komala Goh",
+  },
+
 ]

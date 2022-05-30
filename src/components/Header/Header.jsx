@@ -34,7 +34,7 @@ const Header = ({title}) => {
               <span className="iconBadge">3</span>
             </div>
           </div>
-          <Avatar>3</Avatar>
+          <Avatar src="https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/ec/83/3a/ec833a37-1e6f-958e-9e60-4f358795405f/source/512x512bb.jpg">3</Avatar>
         </div>
         
     </div>
