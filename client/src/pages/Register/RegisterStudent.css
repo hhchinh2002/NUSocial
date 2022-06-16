@@ -1,0 +1,35 @@
+.RegisterStudentBody {
+    display: flex;
+    flex-direction: column;
+}
+
+.RegisterStudentBody > label {
+    color: #003D7C;
+    font-size: 20px;
+}
+
+.RegisterStudentBody > input {
+    margin-left: 10px;   
+    margin-right: 10px;
+}
+
+.RegisterStudentBody  button {
+    color: #003D7C;
+    font-size: 20px;
+    background-color:#7E9FE8 ;
+    margin-top: 20px;
+   width: fit-content;
+    display: block;
+}
+
+.RegisterStudentBody  button:hover{
+    background-color: #003D7C;
+    color: white;
+    font-size: 20px;
+}
+
+.RegisterStudentBody  h1 {
+    color: #003D7C;
+    font-size: 40px;
+    text-align: center;
+}
