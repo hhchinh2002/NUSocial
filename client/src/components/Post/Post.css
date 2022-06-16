@@ -1,0 +1,119 @@
+.postContainer {
+    margin-top: 30px;
+    margin-right: 100px;
+    width: 100%;
+    border: 3px solid #efefef;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+.postTop {
+    width: 100%;
+    display: flex;
+}
+
+.avatarContainer {
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.posterInfo{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.postDetail {
+    padding-top: 10px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding-bottom: 40px;
+}
+
+.postInteraction {
+    width: 100%;
+    display: flex;
+    border-top: 3px solid #efefef;
+    border-bottom: 3px solid #efefef;
+}
+
+.loveContainer {
+    flex: 30%;
+    margin-left: 75%;
+    margin-right:-20%;
+}
+
+.commentIconContainer {
+    flex: 70%;
+    margin-left: 20%;
+    margin-right: -15%;
+}
+
+.postBottom {
+    margin-left: 20px;
+    display: flex;
+    height: 55px;
+    align-items: center;
+}
+
+.postBottomAvatar {
+    flex: 5%;
+}
+
+.postBottomCommentBox {
+   flex: 85%;
+   display: flex;
+   align-items: center;
+}
+
+
+
+.reply {
+    border: none;
+    margin-left:30px;
+    width: 80%;
+    border-right: 3px solid #efefef;
+}
+
+.postBottomSendButton {
+    margin-left: 40px;
+    margin-right: 50px;
+    justify-content: center;
+    height: 30px;
+    width: 100px;
+    border: none;
+    background-color: #ffa544;
+    border-radius: 30px;
+    color: white;
+    text-align: center;
+    transition-duration: 0.4s;
+}
+
+.postBottomSendButton:hover {
+    background-color: white;
+    color: #ffa544;
+    border: 3px solid #ffa544;
+}
+.additionStuff {
+    display: flex;
+    flex-direction: row;
+}
+
+.postBottomCommentBox > form {
+    flex: 1;
+    display: flex;
+  
+}
+
+.postBottomCommentBox > form > input {
+    flex: 1;
+    border-radius: 30px;
+    padding: 10px;
+    border: none;
+}
