@@ -1,0 +1,16 @@
+.News{
+    display: flex;
+    align-items: center;
+    position: absolute;
+}
+
+.postsAndNews {
+    position: relative;
+}
+
+.Posts {
+    margin-top: 25%;
+    margin-left:0%;
+    align-items: center;
+    position: absolute;
+}
