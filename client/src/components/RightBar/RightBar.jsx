@@ -1,3 +1,4 @@
+import React from "react";
 import { Users, FriendSuggestion } from "../TestData/TestData";
 import './rightBar.css';
 import Online from "../Online/Online";
