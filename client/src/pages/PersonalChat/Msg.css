@@ -1,0 +1,35 @@
+
+
+.chat_timeStamp {
+    margin-left: 10px;
+    font-size: xx-small;
+}
+.chat_name{
+    position: absolute;
+    top: -15px;
+    font-weight: 800;
+    font-size: xx-small;
+    color: white;
+}
+
+.YourMessage {
+    margin-left: auto;
+    background-color: #7E9FE8;
+    position: relative;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    margin-bottom: 30px;
+}
+
+.FriendMessage {
+    margin-right: auto;
+    background-color: white;
+    position: relative;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    margin-bottom: 30px;
+}
