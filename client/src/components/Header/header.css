@@ -1,0 +1,86 @@
+.header {
+    height: 80px;
+    width: 100%;
+    background-image: linear-gradient(to right,#EF7C00, #dd982a, #F0B559, #FFD580 );
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.headerLeft  {
+  margin-top: -60px;
+align-items: center;
+margin-right:50px;
+}
+
+.searchBar{
+    width: 70%;
+    height: 30px;
+    background-color: white;
+    display:flex;
+    border-radius: 20px;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.searchInput {
+    font-size: 15px;
+    border: none;
+    width: 50%;
+}
+
+.searchInput:focus{
+    outline: none;
+}
+
+.headerCenter {
+    flex: 5;
+}
+
+.searchBar {
+    width: 60%;
+    height: 40px;
+    display: flex;
+    text-align: center;
+}
+
+.headerLinks {
+    display: flex;
+}
+
+.headerRight {
+    margin-right: 20px;
+    width: 30%;
+    flex: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.headerIcon {
+    display:flex;
+
+}
+
+.iconItem {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.iconBadge {
+    color: white;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    top: 20px;
+    right: -5px;
+    align-items: center;
+    display:flex;
+    justify-content: center;
+    position: absolute;
+}
