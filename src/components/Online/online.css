@@ -1,13 +1,13 @@
 .rightBarFriend {
     display: flex;
-    align-items: center;
-    border-bottom: 5px solid #efefef;
+    min-height: 60px;
+    line-height: 60px;
+    border-bottom: 3px solid #f5f5f5;
 }
 
 .rightBarAvatarContainer {
     margin-top: 10px;
-    margin-bottom: 5px;
-    margin-right: 10px;
+    padding-left: 20px;
     position: relative;
 }
 
@@ -15,7 +15,6 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin-left: 30px;
     object-fit: cover;
 }
 
@@ -30,6 +29,6 @@
     border: 2px solid white;
 }
 
-.rightBarUserName{
-    font-family: 'JetBrains Mono', monospace;
+.rightBarUsername {
+    margin-left: 20px;
 }

@@ -1,14 +1,15 @@
-import "./online.css"
+import "./online.css";
+import { Avatar } from "@mui/material";
 
 const Online = ({user}) => {
   return (
-    <li className="rightBarFriend">
+    <div className="rightBarFriend">
         <div className="rightBarAvatarContainer">
-            <img className="rightBarAvatar" src={user.avatar} alt="" />
+            <Avatar src={user.avatar} alt="" />
             <span className="rightBarOnline"></span>
         </div>
-        <span className="rightBarUsername">{user.userName}</span>
-    </li>
+        <div className="rightBarUsername">{user.userName}</div>
+    </div>
   )
 }
 

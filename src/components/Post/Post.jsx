@@ -22,8 +22,8 @@ const Post = ({post}) => {
             </div>
         </div>
         <div className="postDetail">
-            {post.text}
-            <img src={post.ImageList} alt="" />
+            <div className="postText"> {post.text} </div>
+            <img className="postImages" src={post.imageList} alt="" />
         </div>
         <div className="postInteraction">
             <div className="loveContainer">

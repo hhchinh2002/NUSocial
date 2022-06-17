@@ -204,5 +204,71 @@ export const FriendSuggestion = [
     avatar: "https://images.saymedia-content.com/.image/t_share/MTc0NDU1NjM4NjAzODAyMjQ2/cutest-pokemon-of-all-time.png",
     username: "Komala Goh",
   },
+]
 
+export const Deadlines = [
+  {
+    module: "CS2030S",
+    type: "Test",
+    date: "29/02/2022 - 2:00PM",
+    description: "MSPH2A - 62",
+  },
+  {
+    module: "GEA1000",
+    type: "Submission",
+    date: "01/03/2022 - 0:00AM",
+    description: "Submit through Luminus",
+  },
+  {
+    module: "CS2040S",
+    type: "Test",
+    date: "03/03/2022 - 8:00AM",
+    description: "MSPH2C - 14",
+  },
+]
+
+export const Groups = [
+  {
+    avatar: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-689747178-1601309818.jpg?resize=640:*",
+    name: "Pop-girl Fangroup",
+    description: "For any kind of pop-music fan",
+  },
+  {
+    avatar: "https://cms-assets.themuse.com/media/lead/01212022-1047259374-coding-classes_scanrail.jpg",
+    name: "NUS Coding Club",
+    description: "Place for code learning",
+  },
+  {
+    avatar: "https://i.etsystatic.com/21815852/r/il/e6ebb8/2162807519/il_570xN.2162807519_d47f.jpg",
+    name: "Archery Club",
+    description: "",
+  }
+]
+
+export const Trending = [
+  {
+    trend: "#2021graduation",
+  },
+  {
+    trend: "#FinalTest",
+  },
+  {
+    trend: "#Ranting",
+  },
+  {
+    trend: "#drama",
+  }
+]
+
+export const Events = [
+  {
+    avatar: "https://image.shutterstock.com/image-vector/hackathon-concept-icon-set-big-260nw-2019732209.jpg",
+    name: "2022 NUS Hackathon",
+    time: "02/03/2022 - 3:00PM",
+  },
+  {
+    avatar: "https://img.freepik.com/free-vector/graduation-cap-with-ribbon-congraduation-event_24877-54071.jpg?w=2000",
+    name: "2022 Graduation",
+    time: "13/03/2022 - 8:00AM",
+  }
 ]

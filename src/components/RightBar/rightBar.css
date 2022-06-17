@@ -1,77 +1,88 @@
 .rightBar {
-    flex: 3.5;
-}
-
-.rightBarContainer {
-    padding: 50px 20px 0 50px;
-    align-items: center;
-    margin-right: 40px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 15px;
-}
-
-.friendSuggestionContainer {
     display: flex;
-    align-items: none;
-    height: 200px;
+    flex-direction: column;
+    min-width: 350px;
+}
+
+.rightbarComponentContainer {
+    display: flex;
+    flex-direction: column;
     border: 3px solid #efefef;
+    border-bottom: none;
     border-radius: 10px;
     background-color: white;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
-.friendSuggestionTitle {
+.containerTitle {
     font-size: 20px;
-    padding-top: 15px;
-    height: 40px;
-    width: 100%;
+    font-weight: bold;
+    min-height: 60px;
+    line-height: 60px;
+    padding-left: 20px;
     border-bottom: 3px solid #efefef;
-}
-
-.friendSuggestion {
-    display: flex;
-    flex-direction: column;
 }
 
 .friendSuggestionRequest {
     display: flex;
-    margin-top: 15px;
-    height: 40px;
+    justify-content: space-between;
+    padding-left: 20px;
     align-items: center;
-}
-
-.friendSuggestionAvatar {
-
-}
-.rightBarTitle {
-    margin-bottom: 20px;
-}
-
-.rightBarFriendListContainer {
-    margin-top: 30px;
-    border: 3px solid #efefef;
-    border-radius: 10px;
-    background-color: white;
-    border-bottom: none;
-}
-
-.friendListTitle {
     border-bottom: 3px solid #efefef;
-    height: 50px;
+}
+
+.friendSuggestionLeft {
+    display: flex;
+    height: 60px;
+    line-height: 60px;
+}
+
+.friendSuggestionAvatar {           /*This is only for immediate display purpose*/
+    margin-top: 10px;
+}
+
+.friendSuggestionName {
+    margin-left: 10px;
+}
+
+.sendFriendRequest {
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
+    height: 30px;
+    width: 100px;
+    border: none;
+    background-color: #ffa544;
+    border-radius: 30px;
+    color: white;
     text-align: center;
-    padding-top: 15px;
-    font-size: 30px;
+    transition-duration: 0.4s;
+}
+
+.sendFriendRequest:hover {
+    background-color: white;
+    color: #ffa544;
+    border: 3px solid #ffa544;
+}
+
+.deadlineAndTest {
+    display: flex;
+    justify-content: space-between;
+    min-height: 60px;
+    line-height: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 3px solid #f5f5f5;
+}
+
+.showMore {
+    border-bottom: 3px solid #efefef;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    color: #ffa544;
     font-weight: bold;
-}
-
-.rightBarFriendList {
-    margin: 0;
-    list-style: none;
-}
-
-.rightBarTitle{
-    font-size: 18px;
-    color: #EF7C00;
-    font-weight: 1000;
-    margin-bottom: 10px;
 }

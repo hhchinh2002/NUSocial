@@ -1,47 +1,52 @@
-.profileTop {
-    height: 600px;
+.profileMid {
     position: flex;
-    background-color: #1f3d85;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-.profileCoverImg {
-    width: 100%;
-    object-fit: cover;
-    height: 500px;
-    position: relative;
-    top: 0;
-    left: 0;
+.profileTopContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileImgCover {
+    max-width: 800px;
+    height: auto;
+}
+
+.profileAvatarInfoContainer {
+    display: flex;
 }
 
 .profileAvatar {
-    position: relative;
-    top: -75px;
-    left: 300px;
-    margin: auto;
-    width: 150px;
-    height: 150px;
+    height: 200px;
+    margin-left: 50px;
+    margin-top : -100px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid;
-    border-color: white;    
 }
 
-.profileUserInfo {
+.profileInfoContainer {
+    background-color: white;
+    height: 100px;
+    margin-left: 30px;
+    margin-top: -50px;
+    width: 500px;
+    border-radius: 50px;
     display: flex;
     flex-direction: column;
-    margin-left: 475px;
-    margin-top: -160px;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: bold;
-    color:#ffa544;
+    justify-content: center;
 }
 
-.profileUserName {
-    font-size: 25px;
-    margin-top: 10px;
-    margin-bottom: 0px;
+.profileName {
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.profileFriendsNumber {
+    margin-left: 30px;
 }
 
 .profileBottom {
@@ -52,13 +57,12 @@
 .profileBottomLeft {
     display: flex;
     flex-direction: column;
-    flex: 40%;
+    width: 400px;
 }
 
 .profileBio {
     display: flex;
     flex-direction:column;
-    height: 400px;
     width: 100%;
     font-family: 'JetBrains Mono', monospace;
     background-color: white;
@@ -68,23 +72,30 @@
 }
 
 .bioTitle {
-    height: 50px;
-    width: 100%;
-    font-size: 30px;
-    text-align: center;
-    padding-top: 15px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
     font-weight: bold;
     border-bottom: 3px solid #efefef;
+    display: flex;
+    justify-content: center;
 }
 
 .bioIcon {
-    position: absolute;
-    left: 530px;
-    top: 720px;
+    margin-top: 10px;
+}
+
+.bioDetails {
+    text-align: justify; 
+    font-size: 16px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
 }
 
 .profileAlbum {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -94,16 +105,21 @@
 }
 
 .albumTitle {
-    width: 100%;
-    text-align: center;
-    padding: 30px 0;
-    font-size: larger;
+    display: flex;
+    height: 60px;
+    line-height: 60px;
+    justify-content: center;
+    font-size: 20px;
     font-weight: bold;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 30px;
-
 }
 
+.albumIcon {
+    margin-top: 10px;
+}
+
+.albumDetail {
+    margin-bottom: 30px;
+}
 .profileBottomRight {
     flex: 60%;
 }

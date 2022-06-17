@@ -1,33 +1,68 @@
-import { Users, FriendSuggestion } from "../test-data/test-data";
+import { Users, FriendSuggestion, Deadlines } from "../test-data/test-data";
 import './rightBar.css';
 import Online from "../Online/Online";
 import { Avatar } from "@mui/material";
 
 const RightBar = () => {
   return (
-    <div className="rightBarContainer">
-      <div className="friendSuggestionContainer">
-        <div className="friendSuggestionTitle">
-          <span>There are <b>3</b> people that you may know</span>
+    <div className="rightBar">
+      <div className="rightbarComponentContainer">
+        <div className="containerTitle">
+          Suggestions For You
         </div>
-        <div className="friendSuggestion">
-          {FriendSuggestion.map((u) => (
-            <div className="friendSuggestionRequest">
-              <Avatar src= {u.avatar} />
-              <div className="friendSuggestName">
+        {FriendSuggestion.map((u) => (
+          <div className="friendSuggestionRequest">
+            <div className="friendSuggestionLeft">
+              <div className="friendSuggestionAvatar">
+                <Avatar src= {u.avatar} />
+              </div>
+              <div className="friendSuggestionName">
                 {u.username}
               </div>
-              <button className="sendFriendRequest">Send friend request</button>
             </div>
-          ))}
+            <div className="friendSuggestionRight">
+              <button className="sendFriendRequest">Friend request</button>
+            </div>
+          </div>
+        ))}
+        <div className="showMore">
+          Show more
         </div>
       </div>
-      <div className="rightBarFriendListContainer">
-        <div className="friendListTitle">Friends</div>
-        <div className="rightBarFriendList">
+      <div className="upcomingDeadline">
+        <div className="rightbarComponentContainer">
+          <div className="containerTitle">
+            Upcomming Tests & Deadlines
+          </div>
+          {Deadlines.map((u) => (
+            <div className="deadlineAndTest">
+              <div className="moduleName">
+                {u.module}
+              </div>
+              <div className="deadlineOrTest">
+                {u.type}
+              </div>
+              <div className="date">
+                {u.date}
+              </div>
+            </div>
+          ))}
+          <div className="showMore">
+            Show more
+          </div>
+        </div>
+      </div>
+      <div className="rightbarComponentContainer">
+        <div className="containerTitle">
+          Friends & Recent Chat
+        </div>
+        <div className="Friend">
           {Users.map((u) => (
             <Online key={u.id} user={u} />
           ))}
+        </div>
+        <div className="showMore">
+          Show more
         </div>
       </div>
     </div>

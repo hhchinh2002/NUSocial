@@ -1,7 +1,7 @@
 .postContainer {
     margin-top: 30px;
     margin-left: 50px;
-    margin-right: 100px;
+    margin-right: 50px;
     border: 3px solid #efefef;
     background-color: white;
     display: flex;
@@ -23,22 +23,34 @@
 
 .posterInfo{
     margin-top: 10px;
-    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 
 .postOwner {
+    font-weight: bold;
 }
 
 .postTime {
 }
 
 .postDetail {
-    padding-top: 10px;
+    margin-bottom: 10px;
     margin-left: 20px;
+}
+
+.postText {
+    text-align: justify; 
     font-size: 16px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
+}
+
+.postImages {
+    margin-left: -20px;
+    height: 100%;
+    max-height: 400px;
+    width: auto;
 }
 
 .postInteraction {
@@ -58,41 +70,36 @@
 }
 
 .postBottom {
-    margin-left: 20px;
     display: flex;
-    height: 55px;
+    min-height: 60px;
     align-items: center;
 }
 
 .postBottomAvatar {
-    flex: 5%;
+    margin-left: 20px;
 }
 
 .postBottomCommentBox {
-   flex: 85%;
-   display: flex;
-   align-items: center;
-}
-
-.postBottomCommentBox {
+    display: flex;
+    align-items: center;
     border: 3px solid #efefef;
     border-radius: 20px;
-    height: 25px;
+    height: 35px;
     width: 100%;
-    flex: 60%;
-    margin-left: -100px;
+    margin-left: 20px;
 }
 
 .reply {
     border: none;
+    height: 25px;
     margin-left: 20px;
     width: 80%;
     border-right: 3px solid #efefef;
 }
 
 .postBottomSendButton {
-    margin-left: 40px;
-    margin-right: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
     justify-content: center;
     height: 30px;
     width: 100px;
