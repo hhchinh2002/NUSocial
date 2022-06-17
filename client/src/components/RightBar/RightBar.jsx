@@ -32,7 +32,7 @@ const RightBar = () => {
       <div className="upcomingDeadline">
         <div className="rightbarComponentContainer">
           <div className="containerTitle">
-            Upcomming Tests & Deadlines
+            Upcoming Tests & Deadlines
           </div>
           {Deadlines.map((u) => (
             <div className="deadlineAndTest">
