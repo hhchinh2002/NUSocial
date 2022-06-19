@@ -11,7 +11,7 @@ import Header from '../../components/Header/Header'
   return (
     <div className = "PersonalChat">
     <div className = "personalchat">
-   <Header />
+  <Header title = "Chat"  showHeaderCenter={true} showHeaderRight = {true} link = "/home"/>
     <div className = "personalchat_body">
       <SideBar/>
       <ChatBar  />
