@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
     <div className = "homeHeader">
-    <Header/>
+    <Header showHeaderCenter={true} showHeaderRight= {true}/>
     </div>
     <div className = "homeBody">
       <div className="homeLeftBar">
