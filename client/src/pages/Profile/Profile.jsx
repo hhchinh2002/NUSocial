@@ -8,7 +8,7 @@ const Profile = () => {
   return (
     <div className="profile">
         <div className="profileHeader">
-            <Header />
+           <Header title = "Profile" showHeaderCenter={true} showHeaderRight={true} link = "/home"/>
         </div>
         <div className="profileBody">
             <div className="profileBodyLeft">
