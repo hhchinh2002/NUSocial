@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
+import axios from "axios"
 import './chatBar.css'
 import { Avatar, IconButton } from "@mui/material";
 import {
@@ -8,16 +9,65 @@ import {
   MoreVert,
   SearchOutlined
 } from "@mui/icons-material";
+import Picker from "emoji-picker-react"
+import Draggable from "react-draggable"
+import Msg from './Msg';
 
-//todo: extract footer, body, and header as separate components to simplify this:
+
+const clickedMenu = () => {
+  console.log("clicked menu")
+}
+
  const ChatBar = () => {
 
-  const [input, setInput] =  useState("");
+  const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
+  const [show, setShow] = useState(false);
 
-   const sendMessage = (e) => {
-     e.preventDefault();
-     console.log("You typed >>> ", input);
-   };
+  
+  const handleContextMenu = useCallback(
+    (event) => {
+      event.preventDefault();
+      setAnchorPoint({ x: event.pageX, y: event.pageY });
+      setShow(true);
+    },
+    [setAnchorPoint, setShow]
+  );
+
+  useEffect(() => {
+    document.addEventListener("contextmenu", handleContextMenu);
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+    };
+  });
+
+
+  const [msgs, setMsgs] = useState([]);
+
+    useEffect(() => {
+        const getMsgs= async () => {
+            const {data} = await axios.get(" http://localhost:8000/api/chats/allMsgs");
+            console.log(data);
+            setMsgs(data);
+        }
+        getMsgs()
+    }, [])
+
+    const addMsg = async () => {
+      const data = {
+        sender_nusocial_id: "e0862749",
+        body: input
+    }
+    await axios.post(" http://localhost:8000/api/chats/addMsg", data)
+    }
+  
+  const [input, setInput] =  useState("");
+  const [showPicker, setShowPicker] = useState(false);
+
+  const onEmojiClick = (event, emojiObj) => {
+    setInput(prevInput => prevInput + emojiObj.emoji);
+    setShowPicker(false);
+  }
+
 
   return (
     <div className = "chat">
@@ -43,33 +93,60 @@ import {
     </div>
 
     <div className = "chat_body">
-    <p className = {`chat_msg ${false &&'chat_reciever'}`}> 
-    {/*true means user is has sent msg, false means Friend 1 has sent msg */}
-    <span className = "chat_name">Friend Name</span>
-    Hi!
-    <span className = "chat_timeStamp">4:00pm</span>
-    </p>
-
-    <p className = {`chat_msg ${true &&'chat_reciever'}`}> 
-    <span className = "chat_name">You</span>
-    Hello :D
-    <span className = "chat_timeStamp">4:02pm</span>
-    </p>
-
+    {
+        msgs.map(msg => {
+           return <li key = {msg.id}>
+        <Msg body = {msg.body} time_stamp = "4pm" flag = "true"/> 
+            </li>
+        })
+    }
+    
     </div>
 
     <div className = "chat_footer">
-    <InsertEmoticon />
+    <Draggable>
+    <div className = "emoji_picker">
+     <InsertEmoticon fontSize = "large" onClick = {() => setShowPicker(val => !val)} />
+     {showPicker && <Picker onEmojiClick={ onEmojiClick} /> }
+     </div>
+     </Draggable>
     <form>
-    <input value = {input} 
+    <input id = "myInput" value = {input} 
     placeholder = "Type a message" 
     type = "text" 
       onChange = {e => setInput(e.target.value)}
-    />
-    <button onClick = {sendMessage} type = "submit"> Send a message</button>
+      onKeyDown = { (event) => {
+      if (event.key === 'Enter') {
+        console.log("Pressed Enter");
+        console.log({input}); 
+        addMsg();     
+      }}
+    }
+    /> 
+   
     </form>
     <Mic />
     </div>
+    <div className= "contextMenu">
+      {show ? (
+        <ul
+          className="menu"
+          style={{
+            top: anchorPoint.y,
+            left: anchorPoint.x
+          }}
+          >
+          <li onClick = {clickedMenu}>Share to..</li>
+          <li>Cut</li>
+          <li>Copy</li>
+          <li>Paste</li>
+          <hr className="divider" />
+          <li>Refresh</li>
+          <li>Exit</li>
+        </ul>
+        ) : (
+        <> </>
+      )}</div>
     </div>
   )
 }
