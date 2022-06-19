@@ -8,7 +8,7 @@ const Profile = () => {
   return (
     <div className="profile">
         <div className="profileHeader">
-           <Header title = "Profile" showHeaderCenter={true} showHeaderRight={true} link = "/home"/>
+        <Header title = "Profile" showHeaderCenter={true} showHeaderRight={true} link = "/home"/>
         </div>
         <div className="profileBody">
             <div className="profileBodyLeft">
@@ -16,9 +16,6 @@ const Profile = () => {
             </div>
             <div className="profileBodyMid">
                 <ProfileMid />
-            </div>
-            <div className="profileBodyRight">
-                <RightBar />
             </div>
         </div>
     </div>
