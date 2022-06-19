@@ -14,7 +14,7 @@ const Header = ({title}) => {
           <div className="searchBar">
             <Search style={{marginLeft: "20px", fontSize: "25px"}}/>
             <input 
-              placeHolder="search for modules, friends,..." 
+              placeholder="search for modules, friends,..." 
               className="searchInput"
             >
             </input>
