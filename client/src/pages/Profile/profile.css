@@ -14,25 +14,12 @@
     overflow: hidden;
 }
 
-.profileLeftBar {
+.profileBodyLeft {
     margin-right: 30px;
     height: 100%;
     overflow: auto;
     box-sizing: border-box;
 }
 
-.profileNewsFeed {
-    display: inline-block;
-    text-align: center;
-    min-width: 800px;
-    height: 100%;
-    overflow: auto;
-    box-sizing: border-box;
-}
 
-.profileRightBar {
-    margin-left: 30px;
-    height: 100%;
-    overflow: auto;
-    box-sizing: border-box;
-}
+
