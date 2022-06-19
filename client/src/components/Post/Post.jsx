@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import './post.css'
 import { Avatar, ImageListItem, ImageList } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -6,6 +7,8 @@ import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import { ChatBubbleOutline } from '@mui/icons-material';
 
 const Post = ({post}) => {
+    const [likes, setLikes] = useState(0);
+    const [comments, setComments] = useState(0);
   return (
     <div className="postContainer">
         <div className="postTop">
@@ -27,12 +30,12 @@ const Post = ({post}) => {
         </div>
         <div className="postInteraction">
             <div className="loveContainer">
-                <FavoriteBorderIcon />
-                {post.love}
+                <FavoriteBorderIcon  sx = {{"&:hover": { color: "red" } }}   onClick = {() => setLikes(likes + 1)}/>
+                {likes}
             </div>
             <div className="commentIconContainer">
-                <ChatBubbleOutline />
-                {post.comment}
+                <ChatBubbleOutline sx = {{"&:hover": { color: "blue" } }}   onClick = {() => setComments(comments + 1)} />
+                {comments}
             </div>
         </div>
         <div className="postBottom">
