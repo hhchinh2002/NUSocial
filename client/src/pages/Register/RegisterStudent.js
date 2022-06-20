@@ -13,8 +13,7 @@ function RegisterStudent() {
   const [password, setPassword] = useState("");
   const [course_name, setcourse_name] = useState("");
   const [year_of_study, setyear_of_study] = useState(0);
-  
-
+  const [sentData, setSentData] = useState("");
   const addStudent = async () => {
     const data = {
       nus_email: nus_email,
@@ -24,17 +23,19 @@ function RegisterStudent() {
       course_name: course_name,
       year_of_study: year_of_study
     };
-
+    setSentData("Registered successfully");
 axios.post("http://localhost:8000/api/students/addStudent", data);
   };
 
   return (
+
     <div className="RegisterStudent">
     <div className = "RegisterStudentHeader">
       <Header />
     </div>
      <div className = "RegisterStudentBody">
      <h1>Register</h1>
+ 
      <label htmlFor="">NUS email</label>
        <input type = "email" onChange = {(e) => {
          setnus_email(e.target.value);
@@ -61,11 +62,14 @@ axios.post("http://localhost:8000/api/students/addStudent", data);
        <input type = "number" onChange = {(e) => {
          setyear_of_study(e.target.value);
        }} />
+       {sentData}
        <button onClick = {addStudent}>Submit</button> 
        or 
        <button> <Link href = "/students-login" style={{ textDecoration: 'none' }}>Login  </Link></button>
-     </div>
+     
+      </div>
     </div>
+  
   );
 }
 
