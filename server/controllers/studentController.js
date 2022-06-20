@@ -4,6 +4,8 @@ const db = require('../models')
 const multer = require('multer')
 const path = require('path')
 const bcrypt = require("bcrypt")
+const salt =  bcrypt.genSalt(10);
+
 
 
 // create main Model
@@ -15,11 +17,7 @@ const Chat = db.chats
 // 1. create student
 
 const addStudent = async (req, res) => {
-  
-    
-
     var password = req.body.password;
-    const salt = await bcrypt.genSalt(10);
     password = await bcrypt.hash(password,salt);
     
     let info = {
@@ -37,7 +35,6 @@ const student = await Student.create(info)
     res.status(200).send("error occured")
     console.log(err);
   });
-  
 }
 
 
@@ -45,25 +42,32 @@ const student = await Student.create(info)
 // 2. get all students
 
 const getAllStudents = async (req, res) => {
-
     let students = await Student.findAll({})
     res.status(200).send(students)
-
 }
 
 // 3. get single student based on id and password
 
 const findStudent = async (req, res) => {
-
     let username = req.body.username
     let password = req.body.password
-    let student = await Student.findOne({ where: { username: username, password: password }})
-    
-        if(student) {
-        res.status(200).send("successful login")
-        } else {
-            res.status(200).send("incorrect details");
-        }
+    let student = await Student.findOne({ where: { username: username}}).then(async stu => {
+        if(stu) {
+            
+            if( await bcrypt.compare(password, stu.password)){
+                res.status(200).send("successful login")
+            } else {
+                res.status(200).send("Incorrect password")
+            }
+            } 
+            else {
+                res.status(200).send("Incorrect userid");
+            }
+    })
+
+       
+            
+        console.log(student);
     
 }
 
@@ -137,13 +141,6 @@ const upload = multer({
         cb('Give proper files formate to upload')
     }
 }).single('image')
-
-
-
-
-
-
-
 
 
 module.exports = {
