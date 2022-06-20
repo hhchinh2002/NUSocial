@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './post.css'
-import { Avatar, ImageListItem, ImageList } from '@mui/material'
+import { Avatar } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
