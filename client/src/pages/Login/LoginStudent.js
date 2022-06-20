@@ -4,19 +4,29 @@ import { Link } from "@mui/material";
 import Header from "../../components/Header/Header";
 import "./LoginStudent.css";
 import axios from "axios";
-import {useLocation} from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
+import { Alert } from '@mui/material';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 function LoginStudent() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
+  const [sentData, setSentData] = useState("");
+  const [open, setOpen] = useState(true);
 
+  const navigate = useNavigate();
   const serverLogin = async () => {
     const data = {
       username: username,
       password: password,
     };
-axios.post("http://localhost:8000/api/students/findStudent", data)
+axios.post("http://localhost:8000/api/students/findStudent", data).then(response => {
+  setSentData(response.data);
+  console.log(response.data);
+})
   };
   return (
     <div className="LoginStudent">
@@ -35,11 +45,26 @@ axios.post("http://localhost:8000/api/students/findStudent", data)
          setPassword(e.target.value);
        }}/>
       
-      
-       <button>
-       <Link href = {serverLogin() !== 404 ? "/home":"/students-login"} style={{ textDecoration: 'none' }}>
+      {sentData === "successful login" ? navigate("/home") :sentData === "incorrect details" ? <div><Collapse in={open}> <Alert
+      severity="warning"
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          sx={{ mb: 2 }}
+        >
+          {sentData}
+        </Alert></Collapse></div>: <div></div>}
+       <button onClick  = {serverLogin}>  
        Submit
-       </Link>
        </button> 
      
        <button>  
@@ -49,7 +74,8 @@ axios.post("http://localhost:8000/api/students/findStudent", data)
        </button> 
    
      </div>
-    </div>
+     </div>
+ 
   );
 }
 
