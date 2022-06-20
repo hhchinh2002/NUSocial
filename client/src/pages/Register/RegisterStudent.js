@@ -6,7 +6,9 @@ import { Link } from "@mui/material";
 import axios from "axios"
 import { useNavigate } from 'react-router-dom';
 import { Alert } from '@mui/material';
-
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
 
 function RegisterStudent() {
   const [nus_email, setnus_email]= useState("");
@@ -16,7 +18,7 @@ function RegisterStudent() {
   const [course_name, setcourse_name] = useState("");
   const [year_of_study, setyear_of_study] = useState(0);
   const [sentData, setSentData] = useState("");
-
+  const [open, setOpen] = useState(true);
   const navigate = useNavigate();
   const addStudent = async () => {
     const data = {
@@ -68,7 +70,25 @@ axios.post("http://localhost:8000/api/students/addStudent", data).then(response 
        <input type = "number" onChange = {(e) => {
          setyear_of_study(e.target.value);
        }} />
-      {sentData === "successfully registered"? navigate("/students-login"): sentData === "error occured" ? <div> <Alert onClose={() => {}} severity="error"> {sentData}</Alert></div>: <div></div>} 
+      {sentData === "successfully registered"? navigate("/students-login"): sentData === "error occured" ? 
+      <div><Collapse in={open}> <Alert
+      severity="error"
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          sx={{ mb: 2 }}
+        >
+          {sentData}
+        </Alert></Collapse></div>: <div></div>} 
        <button onClick = {addStudent}>Submit</button> 
        or 
        <button> <Link href = "/students-login" style={{ textDecoration: 'none' }}>Login  </Link></button>
