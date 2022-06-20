@@ -16,7 +16,7 @@ const clickedMenu = () => {
   console.log("clicked menu")
 }
 
- const ChatBar = ({socket, username, chat }) => {
+ const ChatBar = ({socket, username, room }) => {
 
   const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
   const [show, setShow] = useState(false);
@@ -27,7 +27,7 @@ const clickedMenu = () => {
   const sendMessage = async() => {
     if (input !== "") {
       const messageData = {
-        chat: chat,
+        room: room,
         author: username,
         message: input,
         time:
@@ -60,7 +60,7 @@ const onEmojiClick = (event, emojiObj) => {
     <Avatar src = "https://avatars.dicebear.com/api/micah/frend.svg" />
     
     <div className = "chat_headerInfo">
-        <h3>{chat}</h3>
+        <h3>{room}</h3>
         <p>Online/Offline</p>
     </div>
 
