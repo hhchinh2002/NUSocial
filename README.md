@@ -4,7 +4,7 @@
 
 
 cd client
-npm i emoji-picker-react react-draggable react-player react-router-dom socket.io-client
+npm i emoji-picker-react react-draggable react-player react-router-dom socket.io-client axios
 npm start
 
 cd server
