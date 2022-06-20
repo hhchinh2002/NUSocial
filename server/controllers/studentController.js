@@ -25,9 +25,12 @@ const addStudent = async (req, res) => {
     }
 
     const student = await Student.create(info)
-    res.status(200).send(student)
-    console.log(student)
-
+    .then(function(item){
+        res.status(200).send("successfully registered")
+      }).catch(function (err) {
+        res.status(200).send("error occured")
+      });
+  
 }
 
 
@@ -49,9 +52,9 @@ const findStudent = async (req, res) => {
     let password = req.body.password
     let student = await Student.findOne({ where: { username: username, password: password }})
     if(student) {
-        res.status(200).send(student)
+        res.status(200).send({student: student, message: "Successful login"})
     } else {
-        res.status(404).json({error: "Student not found"});
+        res.status(401).json({error: "Student not found"});
     }
 }
 
