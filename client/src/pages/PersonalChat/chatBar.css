@@ -100,3 +100,27 @@
     color: gray;
 
 }
+
+
+.message_other {
+    margin-right: auto;
+    background-color: white;
+    position: relative;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    margin-bottom: 30px;
+}
+
+.message {
+    margin-left: auto;
+    background-color: #7E9FE8;
+    position: relative;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    margin-bottom: 30px;
+    }
+    
