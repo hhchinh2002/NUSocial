@@ -4,6 +4,7 @@ import { Chat, Home, Notifications, Search } from "@mui/icons-material";
 import { Avatar } from '@mui/material';
 import Logo from "../Logo/Logo";
 import { Link } from '@mui/material';
+import DoubleArrowTwoToneIcon from '@mui/icons-material/DoubleArrowTwoTone';
 
 const showingHeaderCenter = () => 
 {
@@ -41,6 +42,9 @@ const showingHeaderRight = () =>
       <div className="iconItem">
       <Link href = "/personalChat">
         <Chat fontSize='large' htmlColor='#1f3d85'/>
+        </Link>
+        <Link href = "/quicklinks">
+          <DoubleArrowTwoToneIcon htmlColor='#1f3d85' />
         </Link>
         <span className="iconBadge">3</span>
       </div>
