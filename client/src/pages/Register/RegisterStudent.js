@@ -3,6 +3,7 @@ import {useState} from "react";
 import Header from "../../components/Header/Header";
 import "./RegisterStudent.css";
 import { Link } from "@mui/material";
+import axios from "axios"
 
 
 function RegisterStudent() {
@@ -24,23 +25,7 @@ function RegisterStudent() {
       year_of_study: year_of_study
     };
 
-const settings = {
-  method: "POST",
-  headers: {
-    Accept: "application/json",
-    "Content-TYPE": "application/json",
-  },
-  body: JSON.stringify(data),
-};
-
-try {
-  const res = await fetch("https://nusocial-2.herokuapp.com/students-register", settings);
-  if(res.ok) {
-    return res.json();
-  }
-} catch (error) {
-     console.log(error);
-}
+axios.post("http://localhost:8000/api/students/addStudent", data);
   };
 
   return (
