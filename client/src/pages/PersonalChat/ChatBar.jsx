@@ -1,5 +1,4 @@
-import React, {useEffect, useState, useCallback} from 'react'
-import axios from "axios"
+import React, {useEffect, useState} from 'react'
 import './chatBar.css'
 import { Avatar, IconButton } from "@mui/material";
 import {
@@ -11,62 +10,48 @@ import {
 } from "@mui/icons-material";
 import Picker from "emoji-picker-react"
 import Draggable from "react-draggable"
-import Msg from './Msg';
 
 
 const clickedMenu = () => {
   console.log("clicked menu")
 }
 
- const ChatBar = () => {
+ const ChatBar = ({socket, username, chat }) => {
 
   const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
   const [show, setShow] = useState(false);
-
-  
-  const handleContextMenu = useCallback(
-    (event) => {
-      event.preventDefault();
-      setAnchorPoint({ x: event.pageX, y: event.pageY });
-      setShow(true);
-    },
-    [setAnchorPoint, setShow]
-  );
-
-  useEffect(() => {
-    document.addEventListener("contextmenu", handleContextMenu);
-    return () => {
-      document.removeEventListener("contextmenu", handleContextMenu);
-    };
-  });
-
-
-  const [msgs, setMsgs] = useState([]);
-
-    useEffect(() => {
-        const getMsgs= async () => {
-            const {data} = await axios.get(" http://localhost:8000/api/chats/allMsgs");
-            console.log(data);
-            setMsgs(data);
-        }
-        getMsgs()
-    }, [])
-
-    const addMsg = async () => {
-      const data = {
-        sender_nusocial_id: "e0862749",
-        body: input
-    }
-    await axios.post(" http://localhost:8000/api/chats/addMsg", data)
-    }
-  
   const [input, setInput] =  useState("");
+  const [inputs, setInputs] = useState([]);
   const [showPicker, setShowPicker] = useState(false);
 
-  const onEmojiClick = (event, emojiObj) => {
-    setInput(prevInput => prevInput + emojiObj.emoji);
-    setShowPicker(false);
+  const sendMessage = async() => {
+    if (input !== "") {
+      const messageData = {
+        chat: chat,
+        author: username,
+        message: input,
+        time:
+          new Date(Date.now()).getHours() +
+          ":" +
+          new Date(Date.now()).getMinutes(),
+      };
+      await socket.emit("send_message", messageData);
+      setInputs((list) => [...list, messageData]);
+      setInput("");
+    }
   }
+  
+
+const onEmojiClick = (event, emojiObj) => {
+  setInput(prevInput => prevInput + emojiObj.emoji);
+  setShowPicker(false);
+}
+    useEffect(() => {
+      socket.on("receive_message", (data) => {
+        setInputs((list) => [...list, data]);
+      });
+    }, [socket]);
+
 
 
   return (
@@ -75,7 +60,7 @@ const clickedMenu = () => {
     <Avatar src = "https://avatars.dicebear.com/api/micah/frend.svg" />
     
     <div className = "chat_headerInfo">
-        <h3>Friend Name</h3>
+        <h3>{chat}</h3>
         <p>Online/Offline</p>
     </div>
 
@@ -94,10 +79,19 @@ const clickedMenu = () => {
 
     <div className = "chat_body">
     {
-        msgs.map(msg => {
-           return <li key = {msg.id}>
-        <Msg body = {msg.body} time_stamp = "4pm" flag = "true"/> 
-            </li>
+        inputs.map(msg => {
+           return (
+            <div 
+            id = {username === msg.author ? "you": "other"}
+            className = {username === msg.author? "message":"message_other"}
+            >
+             <span className = "chat_name">{msg.author}</span>
+    {msg.message}
+    <span className = "chat_timeStamp">
+        {msg.time}
+    </span>
+            </div>
+           )
         })
     }
     
@@ -110,22 +104,21 @@ const clickedMenu = () => {
      {showPicker && <Picker onEmojiClick={ onEmojiClick} /> }
      </div>
      </Draggable>
-    <form>
-    <input id = "myInput" value = {input} 
+ 
+    <input 
+    type = "text"
     placeholder = "Type a message" 
-    type = "text" 
-      onChange = {e => setInput(e.target.value)}
-      onKeyDown = { (event) => {
-      if (event.key === 'Enter') {
-        console.log("Pressed Enter");
-        console.log({input}); 
-        addMsg();     
-      }}
-    }
+    value = {input}
+     
+    onChange={(event) => {
+            setInput(event.target.value);
+          }}
+      onKeyPress = { (event) => {
+      event.key === 'Enter' && sendMessage();  
+    }}
     /> 
    
-    </form>
-    <Mic />
+     <Mic />
     </div>
     <div className= "contextMenu">
       {show ? (
