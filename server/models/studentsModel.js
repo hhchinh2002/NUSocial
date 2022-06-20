@@ -3,25 +3,40 @@ module.exports = (sequelize, DataTypes) => {
         nus_email: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
+            isEmail: true,    
+            notEmpty: true,  
         },
         nusnet_id: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
+            notEmpty: true,  
         },
         username: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
+            notEmpty: true,  
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
+            notEmpty: true,  
         }, 
         course_name: {
             type: DataTypes.STRING,
             allowNull: false,
+            notEmpty: true,  
         },
         year_of_study: {
             type: DataTypes.INTEGER,
+            isDecimal: true
+        },
+        online:{
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
         }
     });
 
