@@ -4,7 +4,8 @@ import Header from "../../components/Header/Header";
 import "./RegisterStudent.css";
 import { Link } from "@mui/material";
 import axios from "axios"
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Alert } from '@mui/material';
 
 
 function RegisterStudent() {
@@ -14,7 +15,9 @@ function RegisterStudent() {
   const [password, setPassword] = useState("");
   const [course_name, setcourse_name] = useState("");
   const [year_of_study, setyear_of_study] = useState(0);
-  const [sentData, setSentData] = useState("blank");
+  const [sentData, setSentData] = useState("");
+
+  const navigate = useNavigate();
   const addStudent = async () => {
     const data = {
       nus_email: nus_email,
@@ -37,7 +40,7 @@ axios.post("http://localhost:8000/api/students/addStudent", data).then(response 
       <Header title = "Register"/>
     </div>
      <div className = "RegisterStudentBody">
-     <h1>Register</h1>
+    
  
      <label htmlFor="">NUS email</label>
        <input type = "email" onChange = {(e) => {
@@ -65,7 +68,7 @@ axios.post("http://localhost:8000/api/students/addStudent", data).then(response 
        <input type = "number" onChange = {(e) => {
          setyear_of_study(e.target.value);
        }} />
-       {sentData === "successfully registered"? <Navigate push to="/home"/>: <div></div>}
+      {sentData === "successfully registered"? navigate("/students-login"): sentData === "error occured" ? <div> <Alert onClose={() => {}} severity="error"> {sentData}</Alert></div>: <div></div>} 
        <button onClick = {addStudent}>Submit</button> 
        or 
        <button> <Link href = "/students-login" style={{ textDecoration: 'none' }}>Login  </Link></button>
