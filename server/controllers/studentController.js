@@ -51,11 +51,13 @@ const findStudent = async (req, res) => {
     let username = req.body.username
     let password = req.body.password
     let student = await Student.findOne({ where: { username: username, password: password }})
-    if(student) {
-        res.status(200).send({student: student, message: "Successful login"})
-    } else {
-        res.status(401).json({error: "Student not found"});
-    }
+    
+        if(student) {
+        res.status(200).send("successful login")
+        } else {
+            res.status(200).send("incorrect details");
+        }
+    
 }
 
 // 4. update Product
