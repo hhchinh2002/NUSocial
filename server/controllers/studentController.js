@@ -3,6 +3,7 @@ const db = require('../models')
 // image Upload
 const multer = require('multer')
 const path = require('path')
+const bcrypt = require("bcrypt")
 
 
 // create main Model
@@ -14,22 +15,28 @@ const Chat = db.chats
 // 1. create student
 
 const addStudent = async (req, res) => {
+  
+    
 
+    var password = req.body.password;
+    const salt = await bcrypt.genSalt(10);
+    password = await bcrypt.hash(password,salt);
+    
     let info = {
         nus_email: req.body.nus_email,
         nusnet_id: req.body.nusnet_id,
         username: req.body.username,
-        password: req.body.password,
+        password:password,
         course_name: req.body.course_name,
         year_of_study: req.body.year_of_study
     }
-
-    const student = await Student.create(info)
-    .then(function(item){
-        res.status(200).send("successfully registered")
-      }).catch(function (err) {
-        res.status(200).send("error occured")
-      });
+const student = await Student.create(info)
+.then(function(item){
+    res.status(200).send("successfully registered")
+  }).catch(function (err) {
+    res.status(200).send("error occured")
+    console.log(err);
+  });
   
 }
 
