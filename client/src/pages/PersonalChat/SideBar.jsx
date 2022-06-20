@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./sideBar.css";
 import { Avatar, IconButton } from "@mui/material";
 import {
@@ -9,7 +9,14 @@ import {
 } from "@mui/icons-material";
 import SideBarChat from './SideBarChat';
 
-function SideBar() {
+function SideBar({socket}) {
+  const joinRoom = () => {
+    if (chat !== "") {
+      socket.emit("join_room", chat);
+    }
+  };
+  const [chats, setChats] = useState([])
+  const [chat, setChat]= useState("")
   return (
     <div className="sidebar">
       <div className="sidebar_header">
@@ -29,12 +36,25 @@ function SideBar() {
       <div className="sidebar_search">
         <div className="sidebar-searchContainer">
           <SearchOutlined />
-          <input placeholder="Search or start new chat" type="text" />
+          <input placeholder="Search or start new chat" type="text" onChange={(event) => {
+              setChat(event.target.value); 
+            }} onKeyPress = {e=>  {
+             if(e.key === 'Enter'){
+    setChats((list) => [...list, chat]  )
+    joinRoom()
+    setChat("")
+  }
+          } }/>
         </div>
       </div>
       <div className="sidebar_chats">
-       <SideBarChat />
-       <SideBarChat />
+      {
+        chats.map(chat => {
+           return (
+          <SideBarChat  chatName = {chat}/>
+           )
+        })
+    }
       </div>
   
     </div>
