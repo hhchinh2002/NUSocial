@@ -1,11 +1,9 @@
 import './profile.css'
-import cover from './cover.jpg'
 import avatar from './avt.jpg'
 import { ImageList, ImageListItem } from '@mui/material'
 import { ProfileAlbumList, PostList } from '../test-data/test-data'
 import FaceTwoToneIcon from '@mui/icons-material/FaceTwoTone'
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary'
-import { Photo } from '@mui/icons-material'
 import Post from '../Post/Post'
 import ReactPlayer from 'react-player'
 
