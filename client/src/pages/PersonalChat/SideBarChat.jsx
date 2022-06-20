@@ -12,8 +12,6 @@ const SideBarChat = ({chatName}) => {
     (4) Make a group 
         */
       
-    
-
   return  (
     <div className = "sidebarchat">
     <Avatar src ="https://avatars.dicebear.com/api/micah/frend.svg" />
