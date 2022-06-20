@@ -3,7 +3,7 @@ import './sideBarChat.css'
 import { Avatar } from '@mui/material'
 import './sideBarChat.css'
 
-const SideBarChat = ({addNewChat}) => {
+const SideBarChat = ({chatName}) => {
     /*
     (1) Show friends list with whom there is no
         chat history
@@ -18,7 +18,7 @@ const SideBarChat = ({addNewChat}) => {
     <div className = "sidebarchat">
     <Avatar src ="https://avatars.dicebear.com/api/micah/frend.svg" />
     <div className = "sidebarchat_info">
-        <h2>Friend name</h2>
+        <h2>{chatName}</h2>
         <p>Last message ...</p>
     </div>
     </div>
@@ -26,4 +26,3 @@ const SideBarChat = ({addNewChat}) => {
 }
 
 export default SideBarChat;
-
