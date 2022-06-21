@@ -25,9 +25,10 @@ const clickedMenu = () => {
   const [showPicker, setShowPicker] = useState(false);
 
   const sendMessage = async() => {
+    socket.emit("join_room", "room");
     if (input !== "") {
       const messageData = {
-        chat: chat,
+        room: "room",
         author: username,
         message: input,
         time:
@@ -79,10 +80,9 @@ const onEmojiClick = (event, emojiObj) => {
 
     <div className = "chat_body">
     {
-        inputs.map(msg => {
+        inputs.map((msg) => {
            return (
             <div 
-            id = {username === msg.author ? "you": "other"}
             className = {username === msg.author? "message":"message_other"}
             >
              <span className = "chat_name">{msg.author}</span>
@@ -138,8 +138,7 @@ const onEmojiClick = (event, emojiObj) => {
           <li>Exit</li>
         </ul>
         ) : (
-        <> </>
-      )}</div>
+        <> </>)}</div>
     </div>
   )
 }
