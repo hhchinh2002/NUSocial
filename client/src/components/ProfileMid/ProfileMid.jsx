@@ -7,6 +7,7 @@ import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary'
 import Post from '../Post/Post'
 import ReactPlayer from 'react-player'
 
+
 function srcset(image, size, rows = 1, cols = 1) {
     return {
       src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
@@ -16,7 +17,8 @@ function srcset(image, size, rows = 1, cols = 1) {
     };
   }
 
-const ProfileMid = () => {
+const ProfileMid = ({username}) => {
+
   return (
       <div className="profileMid">
           <div className="profileTopContainer">
@@ -30,9 +32,10 @@ const ProfileMid = () => {
                     <img className="profileAvatar" src={avatar} alt=""/>
                     <div className="profileInfoContainer">
                         <div className="profileName">
-                            Aurene Otter
+                        {username}
                         </div>
                         <div className="profileFriendsNumber">
+                      
                             893 Friends
                         </div>
                     </div>
