@@ -26,6 +26,7 @@ function LoginStudent() {
 axios.post("http://localhost:8000/api/students/findStudent", data).then(response => {
   setSentData(response.data);
   console.log(response.data);
+  setOpen(true)
 })
   };
   return (
@@ -38,12 +39,23 @@ axios.post("http://localhost:8000/api/students/findStudent", data).then(response
        <input type = "text" onChange = {(e) => {
          setUsername(e.target.value);
         
-       }} />
+       }}
+       onKeyDown = {(e) => {
+          if (e.keyCode == 13) {
+        serverLogin();
+        }
+        }} />
 
        <label htmlFor= "">Password</label>
        <input type = "password" onChange = {(e) => {
          setPassword(e.target.value);
-       }}/>
+       }}
+        onKeyDown = {(e) => {
+          if (e.keyCode == 13) {
+        serverLogin();
+        }
+        }}
+       />
       
       {sentData === "successful login" ? navigate("/home") : <div><Collapse in={open}> <Alert
       severity="warning"
