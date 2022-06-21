@@ -41,7 +41,7 @@ axios.post("http://localhost:8000/api/students/findStudent", data).then(response
         
        }}
        onKeyDown = {(e) => {
-          if (e.keyCode == 13) {
+          if (e.keyCode === 13) {
         serverLogin();
         }
         }} />
@@ -51,7 +51,7 @@ axios.post("http://localhost:8000/api/students/findStudent", data).then(response
          setPassword(e.target.value);
        }}
         onKeyDown = {(e) => {
-          if (e.keyCode == 13) {
+          if (e.keyCode === 13) {
         serverLogin();
         }
         }}
