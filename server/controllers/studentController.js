@@ -7,7 +7,6 @@ const bcrypt = require("bcrypt")
 
 
 
-
 // create main Model
 const Student = db.students
 const Chat = db.chats
@@ -18,7 +17,7 @@ const Chat = db.chats
 
 const addStudent = async (req, res) => {
     var password = req.body.password;
-    password = await bcrypt.hash(password,10);
+    password = await bcrypt.hash(password, 10);
     
     let info = {
         nus_email: req.body.nus_email,
@@ -55,7 +54,11 @@ const findStudent = async (req, res) => {
         if(stu) {
             
             if( await bcrypt.compare(password, stu.password)){
-                res.status(200).send("successful login")
+              
+                stu.update({
+                    online: true
+                  })
+                  res.status(200).send("successful login")
             } else {
                 res.status(200).send("Incorrect password")
             }
@@ -63,11 +66,24 @@ const findStudent = async (req, res) => {
             else {
                 res.status(200).send("Incorrect userid");
             }
-    })
-
-       
-            
+    })     
         console.log(student);
+    
+}
+
+
+// 3. get single student based on id and password
+
+const logoutStudent = async (req, res) => {
+    let username = req.body.username
+    let student = await Student.findOne({ where: { username: username}});
+    student.update({online: false}).then(function(item){
+        res.status(200).send("successfully logout")
+      }).catch(function (err) {
+        res.send("error occured")
+        console.log(err);
+      });
+      
     
 }
 
@@ -146,6 +162,7 @@ const upload = multer({
 module.exports = {
     addStudent,
     getAllStudents,
+    logoutStudent,
     findStudent,
     updateStudent,
     deleteStudent,
