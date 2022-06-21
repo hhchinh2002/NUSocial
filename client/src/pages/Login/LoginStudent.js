@@ -27,12 +27,14 @@ axios.post("http://localhost:8000/api/students/findStudent", data).then(response
   setSentData(response.data);
   console.log(response.data);
   setOpen(true)
+  console.log(username);
 })
   };
   return (
     <div className="LoginStudent">
     <div className= "LoginHeader">
-    <Header title = "Login"/>
+    <Header title = "Login" username = {username}/>
+    
     </div>
      <div className = "LoginStudentBody">
        <label htmlFor="">Username</label>
@@ -57,7 +59,7 @@ axios.post("http://localhost:8000/api/students/findStudent", data).then(response
         }}
        />
       
-      {sentData === "successful login" ? navigate("/home") : sentData!=="" && <div><Collapse in={open}> <Alert
+      {sentData === "successful login" ? navigate("/home", {state:{username:username}}) : sentData!=="" && <div><Collapse in={open}> <Alert
       severity="warning"
           action={
             <IconButton
