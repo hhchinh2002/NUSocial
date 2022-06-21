@@ -9,7 +9,7 @@ const NewsAndNots = () => {
   const location = useLocation();
   return (
     <div >
-      <Header title = "News and Notifications" showHeaderCenter={true} showHeaderRight={true} link = "/home" username = {username}/>
+      <Header title = "News and Notifications" showHeaderCenter={true} showHeaderRight={true} link = "/home" username = {location.state.username}/>
       <div className = "homeBody">
     </div>
     </div>
