@@ -4,7 +4,7 @@ const db = require('../models')
 const multer = require('multer')
 const path = require('path')
 const bcrypt = require("bcrypt")
-const salt =  bcrypt.genSalt(10);
+
 
 
 
@@ -18,7 +18,7 @@ const Chat = db.chats
 
 const addStudent = async (req, res) => {
     var password = req.body.password;
-    password = await bcrypt.hash(password,salt);
+    password = await bcrypt.hash(password,10);
     
     let info = {
         nus_email: req.body.nus_email,
