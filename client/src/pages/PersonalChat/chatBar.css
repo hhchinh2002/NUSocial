@@ -78,20 +78,17 @@
     border-top: 1px solid lightgray;
 }
 
-.chat_footer > form {
-    flex: 1;
-    display: flex;
-  
-}
 
-.chat_footer > form > input {
+.chat_footer >  input {
+
+    display: flex;
     flex: 1;
     border-radius: 30px;
     padding: 10px;
     border: none;
 }
 
-.chat_footer > form > button {
+.chat_footer >  button {
     display: none;
 }
 
