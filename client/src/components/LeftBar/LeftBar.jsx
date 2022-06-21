@@ -1,8 +1,10 @@
 import './leftBar.css';
 import { Groups, Trending, Events } from "../test-data/test-data";
 import { Avatar } from "@mui/material";
+import {useNavigate} from "react-router-dom"
 
 const LeftBar = () => {
+    const navigate = useNavigate();
   return (
     <div className="leftBar">
         <div className="leftBarComponentContainer">
@@ -10,7 +12,7 @@ const LeftBar = () => {
                 Your Groups
             </div>
             {Groups.map((u) => (
-                <div className="group">
+                <div className="group" onClick = {() => navigate("/group", {state:{group: u.name}})} >
                     <div className="groupAvatar">
                         <Avatar src= {u.avatar} />
                     </div>
