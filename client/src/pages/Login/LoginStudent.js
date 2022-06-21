@@ -45,7 +45,7 @@ axios.post("http://localhost:8000/api/students/findStudent", data).then(response
          setPassword(e.target.value);
        }}/>
       
-      {sentData === "successful login" ? navigate("/home") :sentData === "incorrect details" ? <div><Collapse in={open}> <Alert
+      {sentData === "successful login" ? navigate("/home") : <div><Collapse in={open}> <Alert
       severity="warning"
           action={
             <IconButton
@@ -62,7 +62,7 @@ axios.post("http://localhost:8000/api/students/findStudent", data).then(response
           sx={{ mb: 2 }}
         >
           {sentData}
-        </Alert></Collapse></div>: <div></div>}
+        </Alert></Collapse></div>}
        <button onClick  = {serverLogin}>  
        Submit
        </button> 
