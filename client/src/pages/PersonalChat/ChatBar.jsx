@@ -25,10 +25,9 @@ const clickedMenu = () => {
   const [showPicker, setShowPicker] = useState(false);
 
   const sendMessage = async() => {
-    socket.emit("join_room", "room");
     if (input !== "") {
       const messageData = {
-        room: "room",
+        chat: chat,
         author: username,
         message: input,
         time:
