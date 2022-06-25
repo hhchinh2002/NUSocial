@@ -72,6 +72,7 @@
 .postBottom {
     display: flex;
     min-height: 60px;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -115,4 +116,14 @@
     background-color: white;
     color: #ffa544;
     border: 3px solid #ffa544;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+    border: 3px solid #efefef;
+    border-radius: 20px;
+    height: 35px;
+    width: 100%;
+    margin-left: 20px;
 }
