@@ -5,10 +5,31 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import { ChatBubbleOutline } from '@mui/icons-material';
+import Picker from "emoji-picker-react"
 
 const Post = ({post}) => {
     const [likes, setLikes] = useState(0);
     const [comments, setComments] = useState(0);
+    const [comment, setComment] = useState("");
+    const [commentsList, setCommentsList] = useState([]);
+    const [showPicker, setShowPicker] = useState(false);
+    const onEmojiClick = (event, emojiObj) => {
+        setComment(prevInput => prevInput + emojiObj.emoji);
+        setShowPicker(false);
+      }
+      const sendMessage = async() => {
+        if (comment !== "") {
+          const messageData = {
+          comment: comment
+          };
+
+          setCommentsList((list) => [...list, messageData]);
+          setComment("");
+          setComments(comments + 1);
+        }
+      }
+      
+
   return (
     <div className="postContainer">
         <div className="postTop">
@@ -39,21 +60,46 @@ const Post = ({post}) => {
             </div>
         </div>
         <div className="postBottom">
+       {
+        commentsList.map((comment) => {
+           return (
+            <div className = "comment" >
             <div className="postBottomAvatar">
                 <Avatar src="https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/ec/83/3a/ec833a37-1e6f-958e-9e60-4f358795405f/source/512x512bb.jpg" />
             </div>
+    {comment.comment}
+            </div>
+           )
+        })
+    }
+    
+              
+            
             <div className="postBottomCommentBox">
-                <input 
-                  placeHolder="Reply" 
-                  className="reply"
-                >
-                </input>
+            <Avatar src="https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/ec/83/3a/ec833a37-1e6f-958e-9e60-4f358795405f/source/512x512bb.jpg" />
+            <input 
+    type = "text"
+    placeholder = "Add comment" 
+    value = {comment}
+    onChange={(event) => {
+            setComment(event.target.value);
+          }}
+      onKeyPress = { (event) => {
+      event.key === 'Enter' && sendMessage();  
+    }}
+    /> 
+             
                 <div className="additionStuff">
-                    <InsertEmoticonIcon />
-                    <InsertPhotoIcon />
+                    <InsertEmoticonIcon onClick = {() => setShowPicker(val => !val)}/>
+                    {showPicker && <Picker onEmojiClick={ onEmojiClick} /> }
+                    <InsertPhotoIcon  />
                 </div>
             </div>
-            <button className="postBottomSendButton">Send</button>
+            <button className="postBottomSendButton" onClick = {sendMessage} >Send</button>
+            <div className = "commentsBody">
+      
+        </div>
+  
         </div>
     </div>
   )
