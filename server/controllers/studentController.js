@@ -21,11 +21,7 @@ const addStudent = async (req, res) => {
     
     let info = {
         nus_email: req.body.nus_email,
-        nusnet_id: req.body.nusnet_id,
-        username: req.body.username,
         password:password,
-        course_name: req.body.course_name,
-        year_of_study: req.body.year_of_study
     }
 const student = await Student.create(info)
 .then(function(item){
@@ -48,13 +44,11 @@ const getAllStudents = async (req, res) => {
 // 3. get single student based on id and password
 
 const findStudent = async (req, res) => {
-    let username = req.body.username
+    let nus_email = req.body.nus_email
     let password = req.body.password
-    let student = await Student.findOne({ where: { username: username}}).then(async stu => {
+    let student = await Student.findOne({ where: { nus_email: nus_email}}).then(async stu => {
         if(stu) {
-            
             if( await bcrypt.compare(password, stu.password)){
-              
                 stu.update({
                     online: true
                   })
@@ -76,7 +70,7 @@ const findStudent = async (req, res) => {
 
 const logoutStudent = async (req, res) => {
     let username = req.body.username
-    let student = await Student.findOne({ where: { username: username}});
+    let student = await Student.findOne({ where: { nus_email: username}});
     student.update({online: false}).then(function(item){
         res.status(200).send("successfully logout")
       }).catch(function (err) {
