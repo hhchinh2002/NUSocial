@@ -22,29 +22,84 @@ export const LaunchPage = () => {
   const navigate = useNavigate();
   const serverLogin = async () => {
     const data = {
-      nus_email: username,
+      username: username,
       password: password,
     };
 axios.post("http://localhost:8000/api/students/findStudent", data).then(response => {
   setSentData(response.data);
   console.log(response.data);
   setOpen(true)
+  console.log(sentData);
 })};
   
 
+const login = (e) => {
+  if (e.keyCode === 13) {
+    serverLogin();
+  }
+}
+
+const loginAlert = <div><Collapse in={open}> <Alert
+severity= "warning"
+    action={
+      <IconButton
+        aria-label="close"
+        color="inherit"
+        size="small"
+        onClick={() => {
+          setOpen(false);
+        }}
+      >
+        <CloseIcon fontSize="inherit" />
+      </IconButton>
+    }
+    sx={{ mb: 2 }}
+  >
+    {sentData}
+  </Alert></Collapse></div>;
+
+const [usernameReg, setUsernameReg] = useState("");
 const [nus_email, setnus_email]= useState("");
 const [passwordReg, setPasswordReg] = useState("");
+const [sentDataReg, setSentDataReg]  = useState("");
 
 const addStudent = async () => {
   const data = {
+    username: usernameReg,
     nus_email: nus_email,
     password: passwordReg,
   };
+
 axios.post("http://localhost:8000/api/students/addStudent", data).then(response => {
-setSentData(response.data);
+setSentDataReg(response.data);
 console.log(response.data);
 })
 };
+
+const register = (e) => {
+  if (e.keyCode === 13) {
+    addStudent();
+    }
+}
+
+const regAlert = (severity) => <div><Collapse in={open}> <Alert
+severity= {severity}
+    action={
+      <IconButton
+        aria-label="close"
+        color="inherit"
+        size="small"
+        onClick={() => {
+          setOpen(false);
+        }}
+      >
+        <CloseIcon fontSize="inherit" />
+      </IconButton>
+    }
+    sx={{ mb: 2 }}
+  >
+    {sentDataReg}
+  </Alert></Collapse></div>;
   return (
     <div class="launchPage">  
       <div class="container">
@@ -52,77 +107,52 @@ console.log(response.data);
         <div class="loginRegister">
           <form action="#" class="loginForm">
             <h2 class="title">Login</h2>
+            {sentData === "successful login" && navigate("/home", {state:{username:username}})}
+            {sentData !=="" && loginAlert}
+           
             <div class="inputField">
               <PersonIcon className="icon"/>
               <input type="text" placeholder="Username"onChange = {(e) => {
          setUsername(e.target.value);
-        
        }}
-       onKeyDown = {(e) => {
-          if (e.keyCode === 13) {
-        serverLogin();
-        }
-        }} />
+       onKeyDown = {(e) => login(e)} />
             </div>
             <div class="inputField">
               <HttpsIcon className="icon"/>
               <input type="password"  placeholder="Password" onChange = {(e) => {
          setPassword(e.target.value);
        }}
-        onKeyDown = {(e) => {
-          if (e.keyCode === 13) {
-        serverLogin();
-        }
-        }}/>
+        onKeyDown = {(e) => login(e)}/>
             </div>
             <input type="submit" value="Login" class="btn solid"  onClick  = {serverLogin}/>
             <p class="guest" onClick = {() => navigate("/home", {state:{username:"guest"}})}>Or continue as an anonymous guest</p>
           </form>
           <form action="#" class="registerForm">
-            <h2 class="title">Login</h2>
-            {sentData === "successful login" ? navigate("/home", {state:{username:username}}) : sentData!=="" && <div><Collapse in={open}> <Alert
-      severity="warning"
-          action={
-            <IconButton
-              aria-label="close"
-              color="inherit"
-              size="small"
-              onClick={() => {
-                setOpen(false);
-              }}
-            >
-              <CloseIcon fontSize="inherit" />
-            </IconButton>
-          }
-          sx={{ mb: 2 }}
-        >
-          {sentData}
-        </Alert></Collapse></div>}
+
+          
+            <h2 class="title">Register</h2>
+            {sentDataReg === "successfully registered"?regAlert("success"):sentDataReg === "error occured"?regAlert("error"):<div></div>} 
+           
             <div class="inputField">
               <PersonIcon className="icon"/>
-              <input type="text" placeholder="Username"  />
+              <input type="text" placeholder="Username"  onChange = {(e) => {
+         setUsernameReg(e.target.value);
+       }}
+        onKeyDown = {(e) => register(e)}  />
             </div>
             <div class="inputField">
               <EmailIcon className="icon"/>
               <input type="email" placeholder="Email" onChange = {(e) => {
          setnus_email(e.target.value);
        }}
-        onKeyDown = {(e) => {
-          if (e.keyCode === 13) {
-        addStudent();
-        }
-        }} />
+        onKeyDown = {(e) => register(e)} />
             </div>
             <div class="inputField">
               <HttpsIcon className="icon"/>
               <input type="password" placeholder="Password" onChange = {(e) => {
          setPasswordReg(e.target.value);
        }}
-        onKeyDown = {(e) => {
-          if (e.keyCode === 13) {
-        addStudent();
-        }
-        }}/>
+        onKeyDown = {(e) => () => register(e)} />
             </div>
             <input type="submit" class="btn" value="Register" onClick = {addStudent}/>
             <p class="guest" onClick = {() => navigate("/home", {state:{username:"guest"}})}>Or continue as an anonymous guest</p>
