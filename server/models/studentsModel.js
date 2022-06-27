@@ -9,13 +9,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         nusnet_id: {
             type: DataTypes.STRING,
-            allowNull: false,
             unique: true,
-            notEmpty: true,  
         },
         username: {
             type: DataTypes.STRING,
-            allowNull: false,
             unique: true,
             notEmpty: true,  
         },
@@ -26,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
         }, 
         course_name: {
             type: DataTypes.STRING,
-            allowNull: false,
             notEmpty: true,  
         },
         year_of_study: {
