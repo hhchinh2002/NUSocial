@@ -1,17 +1,15 @@
-import React, {useState} from "react"
 import './profile.css'
 import avatar from './avt.jpg'
+import cover from './cover.jpg'
 import { ImageList, ImageListItem } from '@mui/material'
 import { ProfileAlbumList, PostList } from '../test-data/test-data'
 import FaceTwoToneIcon from '@mui/icons-material/FaceTwoTone'
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary'
 import Post from '../Post/Post'
 import ReactPlayer from 'react-player'
-import { Groups } from "../test-data/test-data";
 
 
 function srcset(image, size, rows = 1, cols = 1) {
-    
     return {
       src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
       srcSet: `${image}?w=${size * cols}&h=${
@@ -20,31 +18,20 @@ function srcset(image, size, rows = 1, cols = 1) {
     };
   }
 
- 
-
-
-  
-
 const ProfileMid = ({username}) => {
-    const groupFind = Groups.find(group => {
-        return group.name === username;
-       });
+
   return (
       <div className="profileMid">
           <div className="profileTopContainer">
-                <div className="profileCoverImg">
-               {groupFind !== undefined ?<img src = {groupFind.avatar} height = "500" width = "800" /> : <ReactPlayer  width="1038px"
-      height = "500px"
-      controls
-      url="https://www.youtube.com/watch?v=rc43rHgAFNI&ab_channel=MontereyBayAquarium" />}  
-                </div>
+          <img className="profileCoverImg" src="https://static.boredpanda.com/blog/wp-content/uploads/2020/05/dreamy-portraits-white-samoyed-nikolkopp-fb8.png" alt="" />
                 <div className="profileAvatarInfoContainer">
-                    <img className="profileAvatar" src={avatar} alt=""/>
+                    <img className="profileAvatar" src="https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/ec/83/3a/ec833a37-1e6f-958e-9e60-4f358795405f/source/512x512bb.jpg" alt=""/>
                     <div className="profileInfoContainer">
                         <div className="profileName">
-                        {username}
+                            Samoyed Hoang
                         </div>
                         <div className="profileFriendsNumber">
+                      
                             893 Friends
                         </div>
                     </div>
@@ -59,7 +46,7 @@ const ProfileMid = ({username}) => {
                     </div>
                     <div className="bio">BIO</div>
                 </div>
-                <div className="bioDetails">{groupFind !== undefined ? groupFind.description: "I'm from CS, hiking habbit, do DM me if you want an accompany for hiking :D"}</div>
+                <div className="bioDetails">I'm from CS, hiking habbit, do DM me if you want an accompany for hiking :D</div>
             </div>
             <div className="profileAlbum">
                 <div className="albumTitle">

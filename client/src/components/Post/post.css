@@ -58,21 +58,26 @@
     display: flex;
     border-top: 3px solid #efefef;
     border-bottom: 3px solid #efefef;
+    justify-content: space-around;
 }
 
-.loveContainer {
-    flex: 30%;
-    margin-left: 30px;
+.postInteraction div {
+    color: #ffa544;
+    font-weight: bold;
 }
 
-.commentIconContainer {
-    flex: 70%;
+.interactIcon {
+    color: #5a5a5a;
+    transition-duration: 0.4s;
+}
+
+.interactIcon:hover {
+    color: #ffa544;
 }
 
 .postBottom {
     display: flex;
     min-height: 60px;
-    flex-direction: column;
     align-items: center;
 }
 
@@ -88,6 +93,41 @@
     height: 35px;
     width: 100%;
     margin-left: 20px;
+}
+
+.commentSection {
+    background-color: #ffffff;
+    border-bottom: 3px solid #efefef;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.commentBubble {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #efefef;
+    border-radius: 20px;
+    min-width: 50px;
+    margin-left: 20px;
+}
+
+.commentName {
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.commentBubble p {
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: left;
 }
 
 .reply {
@@ -118,12 +158,10 @@
     border: 3px solid #ffa544;
 }
 
-.comment {
-    display: flex;
-    align-items: center;
-    border: 3px solid #efefef;
-    border-radius: 20px;
-    height: 35px;
-    width: 100%;
-    margin-left: 20px;
+.emoji {
+    color: #555454;
+}
+
+.emoji:hover {
+    color: #ffa544;
 }

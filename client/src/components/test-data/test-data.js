@@ -168,7 +168,7 @@ export const PostList = [
     comment: "254",
   },
   {
-    userAvatar: "https://images.squarespace-cdn.com/content/v1/5a3bb03b4c326d76de73ddaa/1517870790024-IFBNSJOV4HJTTLG5D6CU/one+of+Singapore%27s+photography+locations?format=1000w",
+    userAvatar: "https://i.pinimg.com/originals/1a/0f/ff/1a0fff309ac8f3d5ed8e576d13731214.png",
     userName: "Golden Potter",
     time: "29/4/2022",
     text: "Guess what I have for dinner?",

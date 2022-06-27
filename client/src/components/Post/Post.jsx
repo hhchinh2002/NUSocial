@@ -8,8 +8,9 @@ import { ChatBubbleOutline } from '@mui/icons-material';
 import Picker from "emoji-picker-react"
 
 const Post = ({post}) => {
-    const [likes, setLikes] = useState(0);
-    const [comments, setComments] = useState(0);
+    const [likes, setLikes] = useState(post.love);
+    const [isLiked, setIsLiked] = useState(false);
+    const [comments, setComments] = useState(post.comment);
     const [comment, setComment] = useState("");
     const [commentsList, setCommentsList] = useState([]);
     const [showPicker, setShowPicker] = useState(false);
@@ -50,56 +51,51 @@ const Post = ({post}) => {
             <img className="postImages" src={post.imageList} alt="" />
         </div>
         <div className="postInteraction">
-            <div className="loveContainer">
-                <FavoriteBorderIcon  sx = {{"&:hover": { color: "red" } }}   onClick = {() => setLikes(likes + 1)}/>
+            <div>
+                <FavoriteBorderIcon className="interactIcon" onClick = {() => { setLikes(isLiked ? likes - 1 : likes + 1); setIsLiked(!isLiked) }}/>
                 {likes}
             </div>
-            <div className="commentIconContainer">
-                <ChatBubbleOutline sx = {{"&:hover": { color: "blue" } }}   onClick = {() => setComments(comments + 1)} />
+            <div>
+                <ChatBubbleOutline className="interactIcon" onClick = {() => setComments(comments + 1)} />
                 {comments}
             </div>
         </div>
+        <div className="commentSection">
+            {commentsList.map((comment) => {
+                return (
+                    <div className = "comment" >
+                        <div className="postBottomAvatar">
+                            <Avatar src="https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/ec/83/3a/ec833a37-1e6f-958e-9e60-4f358795405f/source/512x512bb.jpg" />
+                        </div>
+                        <div className="commentBubble">
+                            <div className="commentName">Samoyed Hoang</div>
+                            <p>{comment.comment}</p>
+                        </div>
+                    </div>
+                )
+            })}
+        </div>
         <div className="postBottom">
-       {
-        commentsList.map((comment) => {
-           return (
-            <div className = "comment" >
             <div className="postBottomAvatar">
                 <Avatar src="https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/ec/83/3a/ec833a37-1e6f-958e-9e60-4f358795405f/source/512x512bb.jpg" />
             </div>
-    {comment.comment}
-            </div>
-           )
-        })
-    }
-    
-              
-            
             <div className="postBottomCommentBox">
-            <Avatar src="https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/ec/83/3a/ec833a37-1e6f-958e-9e60-4f358795405f/source/512x512bb.jpg" />
-            <input 
-    type = "text"
-    placeholder = "Add comment" 
-    value = {comment}
-    onChange={(event) => {
-            setComment(event.target.value);
-          }}
-      onKeyPress = { (event) => {
-      event.key === 'Enter' && sendMessage();  
-    }}
-    /> 
-             
+                <input 
+                    className="reply"
+                    type = "text"
+                    placeholder = "Add comment" 
+                    value = {comment}
+                    onChange={(event) => { setComment(event.target.value); }}
+                    onKeyPress = { (event) => {
+                    event.key === 'Enter' && sendMessage();  
+                }}></input> 
                 <div className="additionStuff">
-                    <InsertEmoticonIcon onClick = {() => setShowPicker(val => !val)}/>
+                    <InsertEmoticonIcon className="emoji" onClick = {() => setShowPicker(val => !val)}/>
                     {showPicker && <Picker onEmojiClick={ onEmojiClick} /> }
                     <InsertPhotoIcon  />
                 </div>
             </div>
             <button className="postBottomSendButton" onClick = {sendMessage} >Send</button>
-            <div className = "commentsBody">
-      
-        </div>
-  
         </div>
     </div>
   )
