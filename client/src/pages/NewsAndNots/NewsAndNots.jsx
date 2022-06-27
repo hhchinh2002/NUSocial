@@ -1,4 +1,3 @@
-
 import React from 'react'
 import "./NewsAndNots.css"
 import Header from '../../components/Header/Header';
@@ -10,7 +9,8 @@ const NewsAndNots = () => {
   return (
     <div >
       <Header title = "News and Notifications" showHeaderCenter={true} showHeaderRight={true} link = "/home" username = {location.state.username}/>
-      <div className = "homeBody">
+      <div className = "newsAndNotsBody">
+      It's a WIP
     </div>
     </div>
   )
