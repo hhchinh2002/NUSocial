@@ -1,3 +1,4 @@
+import React, {useState} from "react"
 import './profile.css'
 import avatar from './avt.jpg'
 import { ImageList, ImageListItem } from '@mui/material'
@@ -19,17 +20,20 @@ function srcset(image, size, rows = 1, cols = 1) {
     };
   }
 
-  const groupFind = (username) => Groups.find(group => {
-    return group.name === username;
-   });
+ 
+
+
+  
 
 const ProfileMid = ({username}) => {
-
+    const groupFind = Groups.find(group => {
+        return group.name === username;
+       });
   return (
       <div className="profileMid">
           <div className="profileTopContainer">
                 <div className="profileCoverImg">
-               {groupFind(username) !== undefined ?<img src = {groupFind(username).avatar} height = "500" width = "800" /> : <ReactPlayer  width="1038px"
+               {groupFind !== undefined ?<img src = {groupFind.avatar} height = "500" width = "800" /> : <ReactPlayer  width="1038px"
       height = "500px"
       controls
       url="https://www.youtube.com/watch?v=rc43rHgAFNI&ab_channel=MontereyBayAquarium" />}  
@@ -41,7 +45,6 @@ const ProfileMid = ({username}) => {
                         {username}
                         </div>
                         <div className="profileFriendsNumber">
-                      
                             893 Friends
                         </div>
                     </div>
@@ -56,7 +59,7 @@ const ProfileMid = ({username}) => {
                     </div>
                     <div className="bio">BIO</div>
                 </div>
-                <div className="bioDetails">I'm from CS, hiking habbit, do DM me if you want an accompany for hiking :D</div>
+                <div className="bioDetails">{groupFind !== undefined ? groupFind.description: "I'm from CS, hiking habbit, do DM me if you want an accompany for hiking :D"}</div>
             </div>
             <div className="profileAlbum">
                 <div className="albumTitle">
