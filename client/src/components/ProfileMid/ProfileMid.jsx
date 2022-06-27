@@ -6,9 +6,11 @@ import FaceTwoToneIcon from '@mui/icons-material/FaceTwoTone'
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary'
 import Post from '../Post/Post'
 import ReactPlayer from 'react-player'
+import { Groups } from "../test-data/test-data";
 
 
 function srcset(image, size, rows = 1, cols = 1) {
+    
     return {
       src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
       srcSet: `${image}?w=${size * cols}&h=${
@@ -17,16 +19,20 @@ function srcset(image, size, rows = 1, cols = 1) {
     };
   }
 
+  const groupFind = (username) => Groups.find(group => {
+    return group.name === username;
+   });
+
 const ProfileMid = ({username}) => {
 
   return (
       <div className="profileMid">
           <div className="profileTopContainer">
                 <div className="profileCoverImg">
-                     <ReactPlayer  width="1038px"
+               {groupFind(username) !== undefined ?<img src = {groupFind(username).avatar} height = "500" width = "800" /> : <ReactPlayer  width="1038px"
       height = "500px"
       controls
-      url="https://www.youtube.com/watch?v=rc43rHgAFNI&ab_channel=MontereyBayAquarium" />
+      url="https://www.youtube.com/watch?v=rc43rHgAFNI&ab_channel=MontereyBayAquarium" />}  
                 </div>
                 <div className="profileAvatarInfoContainer">
                     <img className="profileAvatar" src={avatar} alt=""/>
