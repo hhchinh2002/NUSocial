@@ -9,5 +9,6 @@ npm i emoji-picker-react react-draggable react-player react-router-dom socket.io
 npm start
 
 cd server
+npm i mysql2 sequelize cors express
 node index.js
 ```
