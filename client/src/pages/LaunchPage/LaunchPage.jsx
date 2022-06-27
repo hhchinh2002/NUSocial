@@ -22,14 +22,13 @@ export const LaunchPage = () => {
   const navigate = useNavigate();
   const serverLogin = async () => {
     const data = {
-      username: username,
+      nus_email: username,
       password: password,
     };
 axios.post("http://localhost:8000/api/students/findStudent", data).then(response => {
   setSentData(response.data);
   console.log(response.data);
   setOpen(true)
-  console.log(username);
 })};
   
 
@@ -67,7 +66,7 @@ console.log(response.data);
             </div>
             <div class="inputField">
               <HttpsIcon className="icon"/>
-              <input type="password" placeholder="Password" onChange = {(e) => {
+              <input type="password"  placeholder="Password" onChange = {(e) => {
          setPassword(e.target.value);
        }}
         onKeyDown = {(e) => {
@@ -101,18 +100,32 @@ console.log(response.data);
         </Alert></Collapse></div>}
             <div class="inputField">
               <PersonIcon className="icon"/>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Username"  />
             </div>
             <div class="inputField">
               <EmailIcon className="icon"/>
-              <input type="email" placeholder="Email" />
+              <input type="email" placeholder="Email" onChange = {(e) => {
+         setnus_email(e.target.value);
+       }}
+        onKeyDown = {(e) => {
+          if (e.keyCode === 13) {
+        addStudent();
+        }
+        }} />
             </div>
             <div class="inputField">
               <HttpsIcon className="icon"/>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" onChange = {(e) => {
+         setPasswordReg(e.target.value);
+       }}
+        onKeyDown = {(e) => {
+          if (e.keyCode === 13) {
+        addStudent();
+        }
+        }}/>
             </div>
-            <input type="submit" class="btn" value="Register" />
-            <p class="guest">Or continue as an anonymous guest</p>
+            <input type="submit" class="btn" value="Register" onClick = {addStudent}/>
+            <p class="guest" onClick = {() => navigate("/home", {state:{username:"guest"}})}>Or continue as an anonymous guest</p>
           </form>
         </div>
       </div>
