@@ -14,6 +14,6 @@ npm start
 split terminal and :
 ```
 cd NUSocial-main/server
-npm i mysql2 sequelize cors express socket.io
+npm i mysql2 sequelize cors express socket.io multer
 node index.js
 ```
