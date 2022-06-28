@@ -7,11 +7,11 @@ For evaluation, please continue as anonymous guest (registration will require my
 To run: 
 
 ```
-cd client
+cd NUSocial-main/client
 npm i emoji-picker-react react-draggable react-player react-router-dom socket.io-client axios
 npm start
 
-cd server
+cd NUSocial-main/server
 npm i mysql2 sequelize cors express socket.io
 node index.js
 ```
