@@ -15,8 +15,6 @@ root.render(
   <Routes>
   <Route path = "/" element = {<LaunchPage />} />
   <Route path = "/home" element = { <Home />} />
-  <Route path = "/students-register" element = { <RegisterStudent />} />
-  <Route path = "/students-login" element = {<LoginStudent/>} />
   <Route path = "/personalchat" element = {<PersonalChat />} />
   <Route path = "/quicklinks" element = {<QuickLinks />} />
   <Route path = "/profile" element = {<Profile />} />
