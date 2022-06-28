@@ -36,7 +36,6 @@ const clickedMenu = () => {
           new Date(Date.now()).getMinutes(),
       };
       await socket.emit("send_message", messageData);
-      setInputs((list) => [...list, messageData]);
       setInput("");
     }
   }
