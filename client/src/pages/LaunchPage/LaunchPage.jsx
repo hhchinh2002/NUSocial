@@ -22,7 +22,7 @@ export const LaunchPage = () => {
   const navigate = useNavigate();
   const serverLogin = async () => {
     const data = {
-      nus_email: username,
+      username: username,
       password: password,
     };
 axios.post("http://localhost:8000/api/students/findStudent", data).then(response => {
