@@ -11,10 +11,3 @@ cd NUSocial-main/client
 npm i emoji-picker-react react-draggable react-player react-router-dom socket.io-client axios
 npm start
 ```
-If you have mysql community edition downloaded:
-split terminal and :
-```
-cd NUSocial-main/server
-npm i mysql2 sequelize cors express socket.io multer bcrypt
-node index.js
-```
