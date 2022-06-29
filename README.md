@@ -14,6 +14,6 @@ npm start
 
 ```
 cd NUSocial-main/server
-npm i sequelize mysql2 socket.io cors express multer
+npm i sequelize mysql2 socket.io cors express multer bcrypt
 node index.js
 ```
