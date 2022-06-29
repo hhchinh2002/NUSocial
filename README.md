@@ -11,3 +11,9 @@ cd NUSocial-main/client
 npm i emoji-picker-react react-draggable react-player react-router-dom socket.io-client axios
 npm start
 ```
+
+```
+cd NUSocial-main/server
+npm i sequelize mysql2 socket.io cors express 
+node index.js
+```
