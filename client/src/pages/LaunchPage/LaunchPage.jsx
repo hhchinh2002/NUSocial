@@ -13,7 +13,11 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
 export const LaunchPage = () => {
-  const container = document.querySelector(".container");
+  const container = React.useRef(null);
+  const handleSign = () => {
+    container.current?.classList.toggle("registerMode");
+  };
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [sentData, setSentData] = useState("");
@@ -47,7 +51,7 @@ console.log(response.data);
 };
   return (
     <div class="launchPage">  
-      <div class="container">
+      <div class="container" ref={container}>
       <div class="formContainer">
         <div class="loginRegister">
           <form action="#" class="loginForm">
@@ -144,7 +148,7 @@ console.log(response.data);
             <p>
               Register an account to join with NUSocial community.
             </p>
-            <button onClick={() => {container.classList.add("registerMode")}} class="btn transparent">
+            <button onClick={handleSign} class="btn transparent">
               Register
             </button>
           </div>
@@ -156,7 +160,7 @@ console.log(response.data);
             <p>
               Login with your account here to communicate with your friends, people in NUS
             </p>
-            <button onClick={() => {container.classList.remove("registerMode")}} class="btn transparent">
+            <button onClick={handleSign} class="btn transparent">
               Login
             </button>
           </div>
